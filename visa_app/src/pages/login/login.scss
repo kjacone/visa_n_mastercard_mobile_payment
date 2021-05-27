@@ -1,0 +1,26 @@
+page-login {
+  .terms_and_conditions {
+    background: transparent;
+    margin: auto;
+    font-size: 0.8em;
+
+    a {
+      color: rgb(255,180,0);
+    }
+
+    a:hover {
+      color: rgb(26,31,113);
+    }
+  }
+
+  .lower {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .ion-item-input {
+    background: transparent;
+    color: rgb(26,31,113);
+  }
+}

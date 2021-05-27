@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="150"
+   height="151"
+   viewBox="0 0 39.6875 39.952082"
+   version="1.1"
+   id="svg53"
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="savings.svg">
+  <defs
+     id="defs47" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="172.0611"
+     inkscape:cy="51.338488"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata50">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-257.04793)">
+    <path
+       inkscape:connector-curvature="0"
+       id="path4356"
+       d="m 17.171447,296.78764 c -2.29061,-0.30809 -5.407451,-1.38217 -7.4616245,-2.57134 -2.599022,-1.50457 -5.989905,-5.02992 -7.312873,-7.60287 -1.56021499,-3.03435 -2.21969999,-5.37429 -2.38927299,-8.47748 -0.703191,-12.86838 10.78000149,-23.03826 23.30703049,-20.64144 4.014673,0.76813 7.204445,2.46336 10.233593,5.43871 5.267579,5.17404 7.21401,12.74177 5.113936,19.88301 -0.602549,2.04896 -2.279365,5.15145 -3.733734,6.90827 -4.249145,5.13279 -11.289161,7.93307 -17.757055,7.06314 z"
+       style="fill:#d1dcec;stroke-width:0.26458335" />
+    <image
+       sodipodi:absref="F:\documents\Compressed\133657-banking-icons\133657-banking-icons\png\piggy-bank.png"
+       y="262.85983"
+       x="7.5538726"
+       id="image4531"
+       xlink:href="file:///F:/documents/Compressed/133657-banking-icons/133657-banking-icons/png/piggy-bank.png"
+       preserveAspectRatio="none"
+       height="26.586298"
+       width="25.51722" />
+  </g>
+</svg>

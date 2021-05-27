@@ -1,0 +1,35 @@
+<ion-menu [content]="content">
+  <ion-content>
+    <ion-list class="side-menu-list">
+      <br>
+       <img src="assets/img/profile_photo.png" class="side-profile-photo" />
+       <br>
+       <p class="username">Jacone Keya</p>
+       <ion-item (click)="openPage('MainPage')"  menuClose>
+          <ion-icon name="ios-home-outline" color="primary" item-left isActive="true"></ion-icon>
+          <p>Home</p>
+        </ion-item>
+        <ion-item  menuClose>
+          <ion-icon name="ios-person-outline" color="primary" item-left isActive="false"></ion-icon>
+          <p>Manage Profile</p>
+        </ion-item>
+         <ion-item  menuClose>
+          <ion-icon name="ios-call-outline" color="primary" item-left isActive="false"></ion-icon>
+          <a class="contact-link" style="color: black;" href='tel:0726 109 109'>Contact Us</a>
+        </ion-item>
+         <ion-item  menuClose>
+          <ion-icon name="ios-map-outline" color="primary" item-left isActive="false"></ion-icon>
+          <p>Locate us</p>
+        </ion-item>
+        <ion-item  menuClose>
+          <ion-icon name="ios-chatbubbles-outline" color="primary" item-left isActive="false"></ion-icon>
+          <p>Tell a friend</p>
+        </ion-item>
+        <ion-item  (click)="logout()" menuClose>
+          <ion-icon name="ios-exit-outline" color="primary" item-left isActive="false"></ion-icon>
+          <p>Logout</p>
+        </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav #content [root]="rootPage"></ion-nav>

@@ -1,0 +1,89 @@
+<ion-header class="toolbar-panel">
+    <div class="toolbar" style="height: 50px;" padding>
+        <img src="assets/img/back.png" navPop class="backbutton" />
+        <p style="font-size:16px;color:#fff"> {{title}} </p>
+        <span class="icons"> 
+        <div class="notification" (click)="goHome()">
+       <img src="assets/img/view_more.png"/>
+     </div>
+     </span>
+    </div>
+
+</ion-header>
+
+<ion-content class="main">
+
+    <ion-card *ngIf="!pay" class="main">
+        <ion-segment [(ngModel)]="selectionType" color="danger">
+            <ion-segment-button value="enter" style="font-size:10px;margin:auto;display:flex;" (click)="checker()">
+                <ion-icon name="person"></ion-icon> Enter Account
+            </ion-segment-button>
+            <ion-segment-button value="scan" style="font-size:10px;margin:auto;display:flex" (click)="checker()">
+                <ion-icon name="qr-scanner"></ion-icon> Scan Account
+            </ion-segment-button>
+        </ion-segment>
+
+        <div [ngSwitch]="selectionType">
+            <div *ngSwitchCase="'enter'">
+                <ion-item class="ion-item-input">
+                    <ion-label floating>Enter Account Number</ion-label>
+                    <ion-input type="text" maxlength="20" name="name" [(ngModel)]="data.biller_acc"></ion-input>
+                    <button ion-button clear type="button" item-right no-padding><img class="contact_list" src="assets/img/contact_list.png"/></button>
+                </ion-item>
+            </div>
+            <div *ngSwitchCase="'scan'">
+                <button ion-button clear color="danger" (click)="scanqr()">{{data.biller_acc}}</button>
+
+
+            </div>
+        </div>
+
+        <ion-row padding style="margin:auto">
+            <ion-col col-6>
+                <button class="cancel-small-button" ion-button block color="danger" small outline (click)="cancel()" style="margin-left:0px ">
+                      Cancel
+              </button>
+            </ion-col>
+            <ion-col col-6>
+                <button class="submit-small-button" ion-button block small (click)="proceed()" style="margin-left:0px ">
+                      Proceed
+              </button>
+            </ion-col>
+        </ion-row>
+
+    </ion-card>
+
+
+    <div *ngIf="pay">
+
+        <!--<ion-label style="font-size:12px;padding:3px;text-align:center;color:#ed3063;">{{pptdata.SpName}} </ion-label>-->
+
+        <ion-row item-center style="font-size:12px;text-align:left">
+
+
+            <ion-card *ngFor="let item of present" padding>
+                <ion-row item-center style="margin:auto">
+                    <p item-right style="margin:auto" style="color:#000;font-size:12px"><b>{{item.id}}</b> </p>
+                </ion-row>
+                <ion-row (click)="populate(item)">
+                    <h4 style="color:#005dab;" text-wrap>{{item.name}}</h4>
+                </ion-row>
+                <ion-row item-center style="margin:auto">
+                    <ion-col col-6 style="margin:auto">
+                        <p item-right style="margin:auto" style="color:#ed3063;font-size:16px"><b>TZS {{item.amount| number}}</b> </p>
+                    </ion-col>
+                    <ion-col col-6 style="margin:auto">
+                        <ion-badge block item-end color="danger" (click)="continue(item)"> Pay Now </ion-badge>
+                    </ion-col>
+                </ion-row>
+            </ion-card>
+
+
+
+        </ion-row>
+
+
+
+
+    </div>
+</ion-content>

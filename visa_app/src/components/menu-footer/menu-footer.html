@@ -1,0 +1,27 @@
+<ion-footer no-border class="hide-on-keyboard-open">
+  <ion-row center baseline style="font-size:11px;background:rgb(26,31,113);padding:5px">
+    <ion-col style="border-right:solid 1px rgb(255, 186, 1)" (click)="openPage('WithdrawvisaPage')">
+      <div style="text-align:center;color:rgb(255, 186, 1)">
+        <img src="assets/icon/visa-merchant.png" style="height:4vh;" />
+        <br>
+        Home
+      </div>
+    </ion-col>
+
+    <ion-col style="border-right:solid 1px rgb(255, 186, 1)" (click)="openPage('SendmoneyvisaPage')">
+      <div style="text-align:center;color:rgb(255, 186, 1);">
+        <img src="assets/icon/visa-send-money.png" style="height:4vh;" />
+        <br>
+        P2P
+      </div>
+    </ion-col>
+
+    <ion-col  (click)="openPage('LipamvisaPage')">
+      <div style="text-align:center;color:rgb(255, 186, 1);">
+        <img src="assets/icon/qr-code.png" style="height:4vh;" />
+        <br>
+        Pay with Visa
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-footer>

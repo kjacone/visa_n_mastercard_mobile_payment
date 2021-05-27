@@ -1,0 +1,101 @@
+my-cards {
+  ion-grid.cardON {
+    background-color: rgb(26,31,113);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 15px;
+    max-width: 400px !important;
+
+    .msg {
+      background-color: #679cff;
+    }
+  }
+
+  ion-grid.cardOFF {
+    background-color: #bbb7b7;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 15px;
+    max-width: 400px !important;
+
+    .msg {
+      background-color: #d4d4d4;
+    }
+  }
+
+  .msg {
+    float: left;
+    padding: 5px 8px;
+    font-size: 0.8em;
+    color: white;
+    border-radius: 5px;
+  }
+
+  .number {
+    color: white;
+    font-size: 1.5em;
+    line-height: 2em;
+    text-align: center;
+  }
+
+  .digits {
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+
+  .date {
+    color: white;
+    font-size: 0.8em;
+     text-align: center;
+  }
+    .name {
+    text-align: center;
+    color: white;
+    font-size: 1em;
+  }
+
+  .bank {
+    text-align: right;
+    color: white;
+    font-size: 0.8em;
+  }
+
+  .ON {
+    height: 8px;
+    width: 8px;
+    background-color: #8de278;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 2px;
+  }
+
+  .OFF {
+    height: 8px;
+    width: 8px;
+    background-color: #fb5f5f;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 2px;
+  }
+
+  .brand {
+    max-width: 40%;
+    float: right;
+  }
+
+  .chip {
+    img {
+      max-width: 50px;
+      padding-top: 5%;
+      border-radius: 10% !important;
+      overflow: hidden;
+
+    }
+  }
+
+  ion-icon#power {
+    font-size: 2em;
+  }
+
+
+}

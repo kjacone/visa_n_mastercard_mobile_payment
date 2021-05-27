@@ -1,0 +1,14 @@
+
+  <ion-card *ngFor="let statement of transactions" padding>
+      <ion-row (click)="receipt(statement)">
+          <ion-col col-7>
+              <p class="date">{{statement.date}} </p>
+              <p class="body" text-wrap>{{statement.title}}</p>
+              <p class="status">{{statement.status}}</p>
+          </ion-col>
+          <ion-col col-5 item-center style="margin:auto">
+              <p class="date" style="text-align:right" >{{statement.payment_type | uppercase}} </p>
+              <p class="amount"><b>{{statement.amount| currency:'TZS'}}</b> </p>
+          </ion-col>
+      </ion-row>
+  </ion-card>

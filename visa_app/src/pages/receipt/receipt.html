@@ -1,0 +1,34 @@
+<ion-content class="{{cssclass}} main" padding>
+    <div *ngIf="cssclass!='statements'">
+        <br><br><br>
+        <img src="assets/svg/receipt/{{cssclass}}.svg" />
+    </div>
+    <br>
+    <p class="title1" *ngIf="cssclass=='wait'">PROCESSING</p>
+    <p class="title1 " *ngIf="cssclass=='success'">SUCCESSFUL</p>
+    <p class="title1 " *ngIf="cssclass=='error'">FAILED</p>
+    <p class="title1 " *ngIf="cssclass=='statements'">RECEIPT</p>
+    <p class="title2" padding>{{response}} </p>
+
+    <div *ngIf="cssclass=='statements'">
+        <ion-card color="trans" padding>
+            <ion-row>
+                <ion-col col-7>
+                    <p class="date">{{statements.date}} </p>
+                    <h2 style="color:#005dab;" text-wrap>{{statements.title}}</h2>
+                    <p class="status">{{statements.status}}</p>
+                </ion-col>
+                <ion-col col-5 item-center style="margin:auto">
+                    <p item-center class="date" style="text-align:center">MPESA </p>
+                    <p item-right style="color:#000;font-size:16px"><b>{{statements.amount| currency:'TZS'}}</b> </p>
+                </ion-col>
+            </ion-row>
+        </ion-card>
+        <img *ngIf="cssclass=='statements'" src="assets/img/qrcode.jpg" style="width:200px;" />
+    </div>
+
+    <div padding>
+        <button class="submit-button" ion-button (click)="goNext()" block>Done</button>
+    </div>
+
+</ion-content>

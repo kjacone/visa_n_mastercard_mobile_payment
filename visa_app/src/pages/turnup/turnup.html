@@ -1,0 +1,37 @@
+<ion-header class="toolbar-panel">
+  <div class="toolbar" style="height: 50px;" padding>
+      <img src="assets/img/back.png" navPop class="backbutton" />
+      <p style="font-size:16px;color:#fff"> Turn Up </p>
+      <span class="icons"> 
+      <div class="notification" (click)="goHome()">
+     <img src="assets/img/view_more.png"/>
+   </div>
+   </span>
+  </div>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-row item-center style="font-size:12px;text-align:left">
+
+
+        <ion-card *ngFor="let item of present" padding>
+            <ion-row>
+                <h4 style="color:#005dab;" text-wrap>{{item.geometry.name}}</h4>
+            </ion-row>
+            <ion-row item-center style="margin:auto">
+                <ion-col col-6 style="margin:auto">
+                   <img src="{{item.geometry.icon}}"/>
+                </ion-col>
+                <ion-col col-6 style="margin:auto">
+                    <ion-badge block item-end color="primary" > Open Now </ion-badge>
+                </ion-col>
+            </ion-row>
+        </ion-card>
+
+
+
+    </ion-row>
+
+</ion-content>

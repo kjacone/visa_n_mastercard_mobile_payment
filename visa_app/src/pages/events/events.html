@@ -1,0 +1,146 @@
+<!--
+  Generated template for the EventsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="toolbar-panel">
+
+    <div class="toolbar" padding>
+        <img src="assets/img/back.png" navPop class="backbutton" />
+        <p> Events </p>
+
+        <span class="icons"> 
+        <div class="notification" (click)="openPage('NotificationsPage')">
+       <img src="assets/img/notification.png"/>
+       <p class="notification-number">2</p>
+     </div> 
+       <img src="assets/img/search.png" class="search"/>
+     </span>
+    </div>
+    <ion-toolbar no-border-bottom>
+        <ion-segment [(ngModel)]="eventCategory" scrollX="true">
+            <!--<ion-scroll scrollX="true" style="width:100vw; height:20vh">-->
+            <ion-segment-button value="entertainment">
+                Entertainment
+            </ion-segment-button>
+            <ion-segment-button value="art">
+                Art
+            </ion-segment-button>
+            <ion-segment-button value="movies">
+                Movies
+            </ion-segment-button>
+            <ion-segment-button value="sports">
+                Sports
+            </ion-segment-button>
+
+        </ion-segment>
+    </ion-toolbar>
+
+
+
+</ion-header>
+
+
+<ion-content>
+
+
+    <div [ngSwitch]="eventCategory">
+        <!--Content Title-->
+        <div *ngSwitchCase="'entertainment'">
+            <ion-slides pager="true" loop="true" autoplay="2000" style="height:100px">
+                <ion-slide>
+                    <div class="events-list" no-lines>
+                        <div class="event-item" (click)="openEventDetail(event)" *ngFor="let event of entertainmentEvents">
+                            <img [src]="event.poster" />
+                            <div class="details">
+                                <p class="category" text-wrap>{{event.category}}</p>
+                                <p class="title" text-wrap>{{event.title}}</p>
+                            </div>
+                            <button class="more-button" mode="ios" ion-button round small>Find out more</button>
+                        </div>
+                    </div>
+                </ion-slide>
+            </ion-slides>
+
+            <!--Content List-->
+            <ion-list>
+                <ion-item (click)="openEventDetail(event)" *ngFor="let event of entertainmentEvents">
+                    <ion-thumbnail item-start>
+                        <img [src]="event.poster">
+                    </ion-thumbnail>
+                    <h2 style="color:#000;text-align:left;font-family:'Canaro'">{{event.title}}</h2>
+                    <p style="color:#ed3063;text-align:left;font-family:'CanaroLight'">{{event.category}}</p>
+                    <ion-icon name="ios-arrow-forward" item-end color="danger" item-right></ion-icon>
+                </ion-item>
+            </ion-list>
+
+        </div>
+
+        <div *ngSwitchCase="'art'">
+            <!--Content Title-->
+            <ion-slides pager="true" loop="true" autoplay="2000" style="height:100px">
+                <ion-slide>
+                    <div class="events-list" no-lines>
+                        <div class="event-item" (click)="openEventDetail(event)" *ngFor="let event of artEvents">
+                            <img [src]="event.poster" />
+                            <div class="details">
+                                <p class="category" text-wrap>{{event.category}}</p>
+                                <p class="title" text-wrap>{{event.title}}</p>
+                            </div>
+                            <button class="more-button" mode="ios" ion-button round small>Find out more</button>
+                        </div>
+                    </div>
+                </ion-slide>
+            </ion-slides>
+
+            <!--Content List-->
+            <ion-list>
+                <ion-item (click)="openEventDetail(event)" *ngFor="let event of artEvents">
+                    <ion-thumbnail item-start>
+                        <img [src]="event.poster">
+                    </ion-thumbnail>
+                    <h2 style="color:#000;text-align:left;font-family:'Canaro'">{{event.title}}</h2>
+                    <p style="color:#ed3063;text-align:left;font-family:'CanaroLight'">{{event.category}}</p>
+                    <ion-icon name="ios-arrow-forward" item-end color="danger" item-right></ion-icon>
+                </ion-item>
+            </ion-list>
+
+        </div>
+
+
+
+
+
+        <div *ngSwitchCase="'movies'">
+            <!--Content Title-->
+            <ion-slides pager="true" loop="true" autoplay="2000" style="height:100px">
+                <ion-slide>
+                    <div class="events-list" no-lines>
+                        <div class="event-item" (click)="openEventDetail(event)" *ngFor="let event of movies">
+                            <img [src]="event.poster" />
+                            <div class="details">
+                                <p class="category" text-wrap>{{event.category}}</p>
+                                <p class="title" text-wrap>{{event.title}}</p>
+                            </div>
+                            <button class="more-button" mode="ios" ion-button round small>Find out more</button>
+                        </div>
+                    </div>
+                </ion-slide>
+            </ion-slides>
+
+            <!--Content List-->
+            <ion-list>
+                <ion-item (click)="openEventDetail(event)" *ngFor="let event of movies">
+                    <ion-thumbnail item-start>
+                        <img [src]="event.poster">
+                    </ion-thumbnail>
+                    <h2 style="color:#000;text-align:left;font-family:'Canaro'">{{event.title}}</h2>
+                    <p style="color:#ed3063;text-align:left;font-family:'CanaroLight'">{{event.category}}</p>
+                    <ion-icon name="ios-arrow-forward" item-end color="danger" item-right></ion-icon>
+                </ion-item>
+            </ion-list>
+
+        </div>
+    </div>
+</ion-content>

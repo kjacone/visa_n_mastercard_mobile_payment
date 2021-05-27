@@ -1,0 +1,33 @@
+<ion-header class="toolbar-panel">
+  <div class="toolbar" style="height: 50px;" padding>
+    <img src="assets/img/view_more.png" navPop class="backbutton" />
+    <p style="font-size:16px;color:#fff"> Home </p>
+
+    <span class="icons">
+      <div class="notification" (click)="openPage('NotificationsPage')">
+        <img src="assets/img/notification.png" />
+        <p class="notification-number">2</p>
+      </div>
+    </span>
+  </div>
+
+
+</ion-header>
+
+
+<ion-content>
+<br>
+  <p class="page-title"> My Cards</p>
+  <my-cards></my-cards>
+
+  <p class="page-title"> Bill Payment</p>
+  <ion-card class="mimenu"  text-wrap>
+      <biller-scroll></biller-scroll>
+  </ion-card>
+
+  <p class="page-title"> Recent Transactions </p>
+    <ion-list>
+      <recent-transactions> </recent-transactions>
+  </ion-list>
+</ion-content>
+<menu-footer></menu-footer>

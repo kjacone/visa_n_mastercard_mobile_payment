@@ -1,0 +1,53 @@
+page-receipt {
+
+.success{
+	//  background: #fff;
+     color:#331736;
+    
+   background-size: cover;
+      background-repeat: repeat-x;
+}
+.wait{
+	//  background: #fff;
+      color:#331736;
+}
+.error{
+	//  background: #fff;
+     color:#331736;
+}
+
+      img{
+        width:40%;
+        display:block;
+        margin:0 auto;
+      }
+
+      .title1{
+       text-align:center;
+  font-weight: bold;
+  line-height: 1.2;
+    font-size:1.8em;
+      }
+
+      .title2{
+  line-height: 1.2;
+  text-align: center;
+  font-size:1em;
+      }
+
+   .status{
+         color:#8a8e91;
+         font-size:0.8em;
+       }
+
+        .date{
+       
+        color: grey;
+  line-height: 0.9;
+  text-align: right;
+  font-size:10px;
+       }   
+
+
+}
+

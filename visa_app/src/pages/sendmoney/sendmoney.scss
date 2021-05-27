@@ -1,0 +1,28 @@
+.payment-type{
+     .credit-card{
+       float:left;
+       margin:15px;
+
+       
+     }
+
+     .mobile-money{
+       float:right;
+       margin:15px;
+     }
+
+
+  }
+
+  .contact_list{
+    width:1.5em;
+    height:1.5em;
+    float:right;
+  }
+
+   .phone-number{
+        font-size:11px;
+        color: #000;
+        display:block;
+        text-decoration:underline;
+       }

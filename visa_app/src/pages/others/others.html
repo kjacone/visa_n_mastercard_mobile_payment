@@ -1,0 +1,55 @@
+<ion-header class="toolbar-panel">
+    <div class="toolbar" style="height: 50px;" padding>
+        <img src="assets/img/back.png" navPop class="backbutton" />
+        <p>Huduma Zingine </p>
+        <span class="icons"> 
+       <div class="notification" (click)="goHome()">
+       <img src="assets/img/view_more.png"/>
+       
+     </div>
+     </span>
+    </div>
+    <ion-row padding>
+        <p style="font-size:16px"> {{title}} </p>
+    </ion-row>
+</ion-header>
+
+<ion-content padding>
+    <ion-item>
+        <ion-label color="primary" stacked>Select Account From:</ion-label>
+        <ion-select interface="popover" [(ngModel)]="data.account_from" style="max-width:auto;min-width:95%;text-align:right">
+            <ion-option *ngFor="let account of accounts" value="{{account}}"> {{account}}
+            </ion-option>
+        </ion-select>
+    </ion-item>
+
+    <div *ngIf="present">
+        <ion-item>
+            <ion-label floating>Enter Recipient Number</ion-label>
+            <ion-input type="text" maxlength="12" name="name"></ion-input>
+            <button ion-button clear type="button" item-right no-padding><img class="contact_list" src="assets/img/contact_list.png"/></button>
+        </ion-item>
+
+        <div padding>
+            <button class="submit-button" ion-button (click)="doLogin()" block>Get Bill</button>
+        </div>
+    </div>
+
+    <div *ngIf="!present">
+        <ion-item>
+            <ion-label floating>Enter Recipient Number</ion-label>
+            <ion-input type="text" maxlength="12" name="name"></ion-input>
+            <button ion-button clear type="button" item-right no-padding><img class="contact_list" src="assets/img/contact_list.png"/></button>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Enter amount</ion-label>
+            <ion-input type="tel" maxlength="4" name="amount"></ion-input>
+        </ion-item>
+
+        <div padding>
+            <button class="submit-button" ion-button (click)="doLogin()" block>Submit</button>
+        </div>
+    </div>
+
+
+</ion-content>

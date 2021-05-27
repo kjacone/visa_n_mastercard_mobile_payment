@@ -1,0 +1,33 @@
+<ion-content class="main" padding>
+    <br><br>
+    <img src="assets/img/logo.png" class="logo" />
+
+    <ion-list>
+        <p color="primary" class="title1">Set your Secret PIN</p>
+        <br>
+        <ion-item class="ion-item-input">
+            <ion-label color="primary" stacked>Enter Full Names</ion-label>
+            <ion-input text-center type="text" maxlength="25" placeholder="Names" [(ngModel)]="data.name"></ion-input>
+        </ion-item>
+        <!--<br><br>-->
+        <div class="error" *ngIf="error==3"> <a> Enter a valid Name </a> </div>
+        <br>
+        <ion-item class="ion-item-input">
+            <ion-label color="primary" stacked>New PIN</ion-label>
+            <ion-input type="tel" style="-webkit-text-security:disc;" text-center type="tel" maxlength="4" placeholder="New PIN" [(ngModel)]="data.pin"></ion-input>
+        </ion-item>
+        <!--<br><br>-->
+        <div class="error" *ngIf="error==1"> <a> Enter a valid PIN number </a> </div>
+        <br>
+        <ion-item class="ion-item-input">
+            <ion-label color="primary" stacked>Confirm PIN </ion-label>
+            <ion-input type="tel" style="-webkit-text-security:disc;" text-center type="tel" maxlength="4" placeholder="Old PIN" [(ngModel)]="data.newpin"></ion-input>
+        </ion-item>
+        <div class="error" *ngIf="error==2"> <a>New PIN and Confirm PIN do not match </a> </div>
+        <br>
+        <div padding>
+            <button class="submit-button" (click)="reg()" ion-button block>Register</button>
+        </div>
+    </ion-list>
+
+</ion-content>

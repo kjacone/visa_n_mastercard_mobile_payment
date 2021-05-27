@@ -1,0 +1,16 @@
+<ion-content padding>
+    <ion-searchbar (ionInput)="filterItems($event)"></ion-searchbar>
+    <ion-list>
+        <div *ngIf="resProject.length > 0; else noItems">
+            <ion-item *ngFor="let item of resProject" (click)="sendData(item)">
+                {{ item.name }}
+            </ion-item>
+        </div>
+
+        <ng-template #noItems>
+            <ion-item>
+                No items found.
+            </ion-item>
+        </ng-template>
+    </ion-list>
+</ion-content>

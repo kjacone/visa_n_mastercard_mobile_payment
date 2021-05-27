@@ -1,0 +1,142 @@
+page-tutorial {
+
+
+
+  ion-slide{
+   background: url('../assets/img/slideshow/bg_visa.png')no-repeat transparent;
+  //background: rgb(26,31,113);
+    background-size: cover;
+    background-repeat: repeat-x;
+  }
+
+
+  .toolbar-background {
+    background: transparent;
+    border-color: transparent;
+  }
+
+  .swiper-pagination {
+    display:block;
+    text-align: left;
+    top: 92%;
+    position: absolute;
+    margin-left:1em;
+    //margin-botton:2.1em;
+  }
+
+
+  .skip-button{
+    right: 0;
+    position: absolute;
+    top: 90%;
+    text-align: right;
+    font-size: 0.9em;
+    color: white;
+
+  }
+
+  .swiper-pagination-bullet {
+    background: #ad1518;
+    margin-bottom:20%;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #ffffff;
+  }
+
+  .slide-zoom {
+    height: 100%;
+  }
+
+  .slide-title {
+    margin-top: 2.8rem;
+  }
+
+  .slide-image {
+    max-height: 30%;
+    max-width: 30%;
+    margin-top:24vh;
+  }
+
+  .slide-image1 {
+    max-height: 30%;
+    max-width: 40%;
+
+    margin-top:18vh;
+  }
+
+  b {
+    font-weight: 500;
+  }
+
+  p {
+    padding: 0 40px;
+    font-size: 1em;
+    line-height: 1.5;
+    color: rgb(255, 255, 255);
+
+    b {
+      color: rgb(255, 255, 255);
+    }
+  }
+
+  .continue-button {
+    border-radius: 3em;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(253, 255, 252);
+    left: 0;
+    position: absolute;
+    top: 70%;
+    width: 80%;
+    height:3.5em;
+    text-align: center;
+    font-size: 0.8em;
+    color: white;
+    left: 10%;
+    right: 10%;
+    padding:15px;
+    text-decoration: none;
+    background: transparent;
+
+
+  }
+
+  .next-button {
+    border-radius: 10px;
+    left: 0;
+    position: absolute;
+    top: 80%;
+    width: 40%;
+    height:2.5em;
+    text-align: center;
+    font-size: 0.8em;
+    color: white;
+    left: 20%;
+    right: 20%;
+    padding: 1em;
+    text-decoration: none;
+    text-transform: uppercase;;
+  }
+
+
+
+  .slide-img-background {
+    width: 100%;
+    height: 100%;
+  }
+
+   .slide-description {
+    left: 0;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 1em;
+    color: rgb(255, 255, 255);
+    // color: #4dc5f1;
+    z-index:9292929;
+    //background:rgba(0,0,0,0.2)
+  }
+
+}

@@ -1,0 +1,21 @@
+recent-transactions {
+  .date {
+    color: grey;
+    line-height: 0.9;
+    text-align: left;
+    font-size: 10px;
+  }
+  .status {
+    color: #8a8e91;
+    font-size: 0.8em;
+  }
+  .body{
+    color: rgb(26,31,113);
+    font-size: 1.0em;
+  }
+  .amount{
+    color:#000;
+    font-size:1.0em;
+      text-align: right;
+  }
+}

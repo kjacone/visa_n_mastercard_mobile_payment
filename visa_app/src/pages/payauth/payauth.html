@@ -1,0 +1,232 @@
+<ion-content padding class="main">
+    <br><br>
+    <div *ngIf="myres">
+        <img src="{{image}}" class="logo" />
+
+        <div *ngIf="data.card =='dcb_pesa'">
+            <ion-list *ngIf="!dcb_pay">
+                <p color="danger" class="title1">Login to pay using <br> {{title | uppercase}}</p>
+                <br>
+                <ion-item class="ion-item-input">
+                    <ion-label color="label" stacked>{{title}} wallet account</ion-label>
+                    <ion-input type="tel" maxlength="16" [(ngModel)]="data.mobile" name="phone" readonly></ion-input>
+                </ion-item>
+
+                <ion-item class="ion-item-input">
+                    <ion-label color="label" stacked>{{name}} PIN</ion-label>
+                    <ion-input type="tel" style="-webkit-text-security:disc;" type="tel" maxlength="4" placeholder="Enter PIN" [(ngModel)]="data.pin"></ion-input>
+                </ion-item>
+                <div class="error" *ngIf="error==2"> <a> Enter the correct {{title}} PIN </a> </div>
+
+                <div padding class="terms_and_conditions">
+                    By using this clicking, you agree to the <a href="http://www.dcb.co.tz/">Terms and Conditions</a>
+                </div>
+
+                <div padding>
+                    <button class="submit-button" ion-button (click)="dcb_auth()" block>Authenticate</button>
+                </div>
+            </ion-list>
+
+            <ion-list *ngIf="dcb_pay">
+                <ion-item class="ion-item-input">
+                    <ion-label color="primary" stacked> Select {{title| uppercase}} account to pay From:</ion-label>
+                    <ion-select interface="popover" [(ngModel)]="data.mobile" style="max-width:auto;min-width:95%;text-align:center;">
+                        <ion-option *ngFor="let account of accounts" value="{{account}}"> {{account}}
+                        </ion-option>
+                    </ion-select>
+                </ion-item>
+                <div class="error" *ngIf="error==2"> <a> Select {{title}} account </a> </div>
+                <div padding>
+                    <p class="title2">Biller Name: <b>{{data.biller_name| uppercase }} </b></p>
+                    <p class="title2">Account Number: <b>{{data.biller_acc }}</b></p>
+                    <p class="title1">Pay TZS {{data.amount }}</p>
+
+                    <div class="terms_and_conditions">
+                        By using this clicking, we you will be paying for {{data.biller_name| uppercase}}
+                    </div>
+                </div>
+                <div padding>
+                    <button class="submit-button" ion-button (click)="auth()" block>Pay</button>
+                </div>
+            </ion-list>
+        </div>
+
+        <div *ngIf="data.card =='mpesa'">
+            <ion-list>
+                <p color="danger" class="title1">Pay using <br> {{title | uppercase}}</p>
+                <br>
+                <div padding class="terms_and_conditions" style="text-align:center">
+                    this is a {{title}} checkout.To pay click Authenticate and wait to enter your {{title}} Secure PIN
+                </div>
+
+                <p color="danger" class="title1"> {{data.mobile | uppercase}}</p>
+
+                <div class="terms_and_conditions" style="text-align:center">
+                    By using this clicking, we you will be paying for <b>{{data.biller_name| uppercase}} </b><br> Account Number: <b>{{data.biller_acc}}</b> <br> Amount: TZS <b>{{data.amount}}</b>
+                </div>
+
+                <div padding>
+                    <button class="submit-button" ion-button (click)="auth()" block> Authenticate</button>
+                </div>
+
+            </ion-list>
+        </div>
+        <div *ngIf="data.card =='tigo_pesa'">
+            <ion-list>
+                <p color="danger" class="title1">Pay using <br> {{title | uppercase}}</p>
+                <br>
+                <div padding class="terms_and_conditions" style="text-align:center">
+                    this is a {{title}} checkout.To pay click Authenticate and wait to enter your {{title}} Secure PIN
+                </div>
+
+                <p color="danger" class="title1"> {{data.mobile | uppercase}}</p>
+
+                <div class="terms_and_conditions" style="text-align:center">
+                    By using this clicking, we you will be paying for <b>{{data.biller_name| uppercase}} </b><br> Account Number: <b>{{data.biller_acc}}</b> <br> Amount: TZS <b>{{data.amount}}</b>
+                </div>
+
+                <div padding>
+                    <button class="submit-button" ion-button (click)="auth()" block> Authenticate</button>
+                </div>
+
+            </ion-list>
+        </div>
+        <div *ngIf="data.card =='airtel_money'">
+            <ion-list>
+                <p color="danger" class="title1">Pay using <br> {{title | uppercase}}</p>
+                <br>
+                <div padding class="terms_and_conditions" style="text-align:center">
+                    this is a {{title}} checkout.To pay click Authenticate and wait to enter your {{title}} Secure PIN
+                </div>
+
+                <p color="danger" class="title1"> {{data.mobile | uppercase}}</p>
+
+                <div class="terms_and_conditions" style="text-align:center">
+                    By using this clicking, we you will be paying for <b>{{data.biller_name| uppercase}} </b><br> Account Number: <b>{{data.biller_acc}}</b> <br> Amount: TZS <b>{{data.amount}}</b>
+                </div>
+
+                <div padding>
+                    <button class="submit-button" ion-button (click)="auth()" block> Authenticate</button>
+                </div>
+
+            </ion-list>
+        </div>
+
+        <div *ngIf="data.card =='master_card'">
+            <ion-list>
+                <p color="danger" class="title1">Pay using <br> {{title | uppercase}}</p>
+                <br>
+                <div padding class="terms_and_conditions" style="text-align:center">
+                    this is a {{title}} checkout.To pay click Authenticate and wait to enter your {{title}} Secure PIN
+                </div>
+
+                <p color="danger" class="title1"> {{data.mobile | uppercase}}</p>
+
+                <div class="terms_and_conditions" style="text-align:center">
+                    By using this clicking, we you will be paying for <b>{{data.biller_name| uppercase}} </b><br> Account Number: <b>{{data.biller_acc}}</b> <br> Amount: TZS <b>{{data.amount}}</b>
+                </div>
+
+                <div padding>
+                    <button class="submit-button" ion-button (click)="auth()" block> Authenticate</button>
+                </div>
+
+            </ion-list>
+        </div>
+
+        <div *ngIf="data.card =='visa'">
+            <ion-list>
+                <br>
+                <br>
+                <div class="terms_and_conditions" style="text-align:center">
+                    By using this clicking, we you will be paying for <b>{{data.biller_name| uppercase}} </b><br> Account Number: <b>{{data.biller_acc}}</b> <br> Amount: TZS <b>{{data.amount}}</b>
+                </div>
+
+                <ion-row style="height: 27vh;">
+                    <ion-card padding>
+                        <ion-card-header> Welcome Jacone Keya</ion-card-header>
+                        <ion-row>
+                            <ion-col col-6>
+                                <p style="padding-top:5px;color:#005aa9;font-size:2.3vh">Account Number</p>
+                                <p style="color:#000000;font-size:2.3vh;margin-top: 10px">{{ data.mobile }}</p>
+                            </ion-col>
+                            <ion-col col-6>
+                                <p style="padding-top:5px;color:#005aa9;font-size:2.3vh;">Linked Mobile</p>
+                                <p style="color:#000000;font-size:2.3vh;margin-top: 10px">{{ data.mobile }}</p>
+                            </ion-col>
+                        </ion-row>
+
+                    </ion-card>
+
+
+                </ion-row>
+
+                <div padding>
+                    <button class="submit-button" ion-button (click)="auth()" block> Pay </button>
+                </div>
+
+            </ion-list>
+        </div>
+
+
+    </div>
+    <div *ngIf="!myres">
+        <br><br><br>
+
+        <div style="text-align:left">
+            <p> By using this clicking, we you will be paying for
+                <br> <b style="color:#005dab;font-size:14px;text-align:center">{{data.biller_name| uppercase}} - {{data.name}} </b> </p>
+
+            <p text-wrap> Account Number: {{data.biller_acc}}</p>
+            <p text-wrap> Amount:<b style="color:#ed3063;font-size:22px;">  TZS {{data.amount}}</b> </p>
+        </div>
+        <ion-item class="ion-item-input">
+            <p style="color:#ed3063;">Pay Your Bill Using: </p>
+        </ion-item>
+
+        <ion-row class="roar" nowrap>
+            <ion-col class="inactive {{item.select}}" *ngFor="let item of cards" align-self-baseline col-4 color="primary" (click)="selected(item.name,item.image)">
+                <img src="{{item.image}}" />
+            </ion-col>
+        </ion-row>
+
+        <div *ngIf="data.card!=''">
+            <ion-row padding item-center name="paymentType" radio-group (ionChange)="onRadioSelected()" [(ngModel)]="type">
+                <ion-col item-center>
+                    <ion-radio value="own"></ion-radio>
+                    <span>From my  {{data.card}}  <span class="phone-number"  style="color:#005dab;">{{username}}</span></span>
+                </ion-col>
+                <ion-col item-center>
+                    <ion-radio value="other"></ion-radio>
+                    <span>Someone else pay</span>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="type=='other'">
+                <ion-item class="ion-item-input">
+                    <ion-label stacked>Enter {{data.card}} Number</ion-label>
+                    <ion-input type="text" maxlength="20" name="name" [(ngModel)]="data.mobile"></ion-input>
+                    <button ion-button clear type="button" item-right no-padding><img class="contact_list" src="assets/img/contact_list.png"/></button>
+                </ion-item>
+            </ion-row>
+
+        </div>
+        <ion-row style="margin:auto">
+            <ion-col col-6>
+                <button class="cancel-small-button" ion-button block color="danger" small outline (click)="goback()" style="margin-left:0px ">
+                      Cancel
+              </button>
+            </ion-col>
+            <ion-col col-6>
+                <button class="submit-small-button" ion-button block small (click)="continue()" style="margin-left:0px ">
+                      Proceed
+              </button>
+            </ion-col>
+        </ion-row>
+
+    </div>
+
+
+    <ion-fab top left clear (click)="goback()">
+        <button ion-fab clear><ion-icon md="md-close" ></ion-icon></button>
+    </ion-fab>
+
+</ion-content>

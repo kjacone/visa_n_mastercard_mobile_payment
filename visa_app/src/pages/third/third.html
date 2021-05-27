@@ -1,0 +1,44 @@
+<ion-header class="toolbar-panel">
+    <div class="toolbar" style="height: 50px;" padding>
+        <img src="assets/img/back.png" navPop class="backbutton" />
+        <p style="font-size:16px;color:#fff"> My Receipts </p>
+        <span class="icons"> 
+         <div class="notification" (click)="goHome()">
+       <img src="assets/img/view_more.png"/>
+     </div>
+     </span>
+    </div>
+
+</ion-header>
+
+<ion-content>
+    <!--<ion-list *ngFor="let transaction of transactions">
+        <ion-item no-lines>
+            <ion-avatar item-start>
+                <img src="assets/img/transaction.png">
+            </ion-avatar>
+            <h3>{{transaction.title}}</h3>
+            <img class="icon" src="assets/img/successful.png" />
+            <p class="status">{{transaction.status}}</p>
+            <p class="amount">{{transaction.amount}}</p>
+            <p class="date">{{transaction.date}}</p>
+        </ion-item>-->
+
+    <ion-card *ngFor="let statement of transactions" padding>
+        <ion-row (click)="receipt(statement)">
+            <ion-col col-7>
+                <p class="date">{{statement.date}} </p>
+                <h2 style="color:#005dab;" text-wrap>{{statement.title}}</h2>
+                <p class="status">{{statement.status}}</p>
+            </ion-col>
+            <ion-col col-5 item-center style="margin:auto">
+                <p item-center class="date" style="text-align:center">mpesa </p>
+                <p item-right style="color:#000;font-size:16px"><b>{{statement.amount| currency:'TZS'}}</b> </p>
+            </ion-col>
+        </ion-row>
+    </ion-card>
+
+    <!--<div class=" list-divider "> </div>
+    </ion-list>-->
+
+</ion-content>

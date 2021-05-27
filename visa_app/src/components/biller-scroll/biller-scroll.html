@@ -1,0 +1,19 @@
+<ion-row class="filters">
+  <!-- <ion-col (click)="slidePrev()" style="margin:auto" no-padding col-1>
+    <img src="assets/svg/left.svg" style="height:2vh;margin:auto">
+  </ion-col> -->
+  <ion-col no-padding col-11>
+    <ion-slides (ionSlideDidChange)="slideChanged()" slidesPerView="4">
+      <ion-slide (click)="quick(item.link)" *ngFor="let item of quick_list" class="outerr">
+        <!-- <p [class.selected]="selectedCategory?.id === category.id">{{ category.name }}</p> -->
+        <div class="inner">
+          <img src="{{item.image}}" /></div>
+        <p style="text-align:center;color:#333333;"> {{item.name}} </p>
+
+      </ion-slide>
+    </ion-slides>
+  </ion-col>
+  <ion-col (click)="slideNext()" style="margin:auto" no-padding col-1>
+    <ion-icon name="ios-arrow-forward" color="dark" item-right></ion-icon>
+  </ion-col>
+</ion-row>

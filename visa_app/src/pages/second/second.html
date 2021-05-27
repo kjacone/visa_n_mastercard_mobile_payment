@@ -1,0 +1,49 @@
+<ion-header class="toolbar-panel">
+
+    <div class="toolbar" padding>
+        <img src="assets/img/back.png" navPop class="backbutton" />
+        <p> Events </p>
+
+        <span class="icons"> 
+        <div class="notification" (click)="openPage('NotificationsPage')">
+       <img src="assets/img/notification.png"/>
+       <p class="notification-number">2</p>
+     </div> 
+       <img src="assets/img/search.png" class="search"/>
+     </span>
+    </div>
+
+</ion-header>
+
+<ion-content>
+    <div>
+        <ion-slides pager="true" loop="true" autoplay="2000" style="height:100px">
+            <ion-slide>
+                <div class="events-list" no-lines>
+                    <div class="event-item" (click)="openEventDetail(event)" *ngFor="let event of monthlyBills">
+                        <img [src]="event.poster" />
+                        <div class="details">
+                            <p class="category" test-wrap>{{event.category}}</p>
+                            <p class="title" test-wrap>{{event.title}}</p>
+                        </div>
+                        <button class="more-button" mode="ios" ion-button round small>Find out more</button>
+                    </div>
+                </div>
+            </ion-slide>
+        </ion-slides>
+
+        <ion-list>
+            <div *ngFor="let m of menus">
+                <ion-card class="mimenu" color="white" (click)="openPage(m)">
+                    <ion-item color="white">
+                        <ion-avatar item-left>
+                            <img src="{{m.image}}" style="height:30px;width:30px">
+                        </ion-avatar>
+                        <p style="color:#ed3063;text-align:left;font-family:'Canaro'">{{m.name}} </p>
+                        <ion-icon name="ios-arrow-forward" color="danger" item-right></ion-icon>
+                    </ion-item>
+                </ion-card>
+            </div>
+        </ion-list>
+    </div>
+</ion-content>

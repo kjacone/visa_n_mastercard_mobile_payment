@@ -1,0 +1,41 @@
+<ion-content padding class="main">
+    <br><br>
+    <img src="assets/img/logo.png" class="logo" />
+    <div *ngIf="otp==1">
+        <p color="primary" class="title1"> Device Activation </p>
+
+
+        <ion-item class="ion-item-input">
+            <ion-label color="primary" stacked>Mobile Number</ion-label>
+            <ion-input type="tel" text-center maxlength="18" [(ngModel)]="data.phoneNumber"></ion-input>
+        </ion-item>
+        <div class="error" *ngIf="error==2"> <a> Enter a valid mobile number </a> </div>
+
+        <ion-item class="terms_and_conditions ion-item-input">
+            <ion-label stacked> <a href="http://www.google.com"> Accept Terms and Conditions</a></ion-label>
+            <ion-checkbox color="blue" [(ngModel)]="checked" item-left></ion-checkbox>
+        </ion-item>
+        <div padding>
+            <button class="submit-button" ion-button (click)="submitOTP()" block> Activate </button>
+        </div>
+    </div>
+
+
+
+    <div *ngIf="otp==2">
+        <p color="primary" class="title1"> Enter OTP </p>
+        <ion-item class="ion-item-input">
+            <ion-label style="text-align:center" color="blue" stacked> Enter code sent via SMS on {{ data.mobile }}</ion-label>
+            <ion-input text-center type="tel" maxlength="6" [(ngModel)]="data.code" class="put"></ion-input>
+        </ion-item>
+
+
+        <div padding>
+            <button class="submit-button" color="blue" ion-button (click)="verifyOTP()" block>Confirm</button>
+        </div>
+
+    </div>
+
+
+
+</ion-content>

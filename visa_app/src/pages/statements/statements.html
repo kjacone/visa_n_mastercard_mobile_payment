@@ -1,0 +1,67 @@
+<ion-header class="toolbar-panel">
+    <div class="toolbar" style="height: 50px;" padding>
+        <img src="assets/img/back.png" navPop class="backbutton" />
+        <p>Lipa Bill </p>
+        <span class="icons"> 
+        <div class="notification" (click)="goHome()">
+       <img src="assets/img/view_more.png"/>
+     </div>
+     </span>
+    </div>
+    <ion-row padding>
+        <p style="font-size:16px"> {{title}} </p>
+    </ion-row>
+</ion-header>
+
+<ion-content padding>
+    <div *ngIf="type=='full'">
+        <ion-item>
+            <ion-label color="primary" stacked>Select Account From:</ion-label>
+            <ion-select interface="popover" [(ngModel)]="data.account_from" style="max-width:auto;min-width:95%;text-align:right">
+                <ion-option *ngFor="let account of accounts" value="{{account}}"> {{account}}
+                </ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label color="primary" stacked>Select Duration:</ion-label>
+            <ion-select interface="popover" [(ngModel)]="data.duration" style="max-width:auto;min-width:95%;text-align:right">
+                <ion-option *ngFor="let account of durations" value="{{account.id}}"> {{account.name}}
+                </ion-option>
+            </ion-select>
+        </ion-item>
+
+        <div padding>
+            <button class="submit-button" ion-button (click)="getFull()" block>Get Fullstatement</button>
+        </div>
+    </div>
+
+
+    <div *ngIf="type=='mini'">
+        <ion-item>
+            <ion-label color="primary" stacked>Select Account From:</ion-label>
+            <ion-select interface="popover" [(ngModel)]="data.account_from" style="max-width:auto;min-width:95%;text-align:right">
+                <ion-option *ngFor="let account of accounts" value="{{account}}"> {{account}}
+                </ion-option>
+            </ion-select>
+        </ion-item>
+
+        <div padding>
+            <button class="submit-button" ion-button (click)="getMini()" block>Get Ministatement</button>
+        </div>
+    </div>
+
+    <div *ngIf="type=='state'">
+        <ion-card class="mimenu" color="white" *ngFor="let statement of statements">
+            <ion-item color="mytran">
+                <p style="color:#005dab;">{{statement.date}} ( <b style="color:#f5a31c;">{{statement.drcr}}</b> ) </p>
+                <h2 style="color:#005dab;">{{statement.narration}}</h2>
+                <p style="color:#000;">{{statement.ref_number}}</p>
+                <span item-right style="color:#f5a31c;font-size:20px"><b>{{statement.amount}}</b> </span>
+            </ion-item>
+        </ion-card>
+    </div>
+
+
+
+</ion-content>

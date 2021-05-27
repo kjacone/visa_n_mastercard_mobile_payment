@@ -1,0 +1,37 @@
+<ion-content class="main" no-bounce>
+  <ion-slides pager="true" loop="true" autoplay="4000" dir="{{dir}}" (ionSlideWillChange)="onSlideChangeStart($event)">
+
+    <ion-slide>
+            <img src="assets/img/slideshow/slide1.png" class="slide-image1"  />
+            <p class="slide-description">Welcome to VISA payment Service</p>
+            <button ion-button padding class="continue-button" (click)="slideNext()">
+       Get Started
+      </button>
+            <button (click)="startApp()" class="skip-button" color="white" ion-button clear small>Login</button>
+        </ion-slide>
+    <!--
+     <ion-slide>
+       <img src="assets/img/slideshow/churchill2.png" class="slide-img-background"/>
+       <p class="slide-description">Tune in to Churchill show every Sunday @9pm</p>
+    </ion-slide>
+  -->
+
+    <ion-slide *ngFor="let slide of slidesList">
+      <img [src]="slide.image" class="slide-image" />
+      <button ion-button padding class="continue-button" (click)="slideNext()">
+        Next
+      </button>
+      <p [innerHTML]="slide.description"></p>
+      <button (click)="startApp()" class="skip-button" color="white" ion-button clear small>Skip</button>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="assets/img/slideshow/pay_bills.png" class="slide-image" />
+      <p>{{ 'TUTORIAL_SLIDE4_DESCRIPTION' | translate }}</p>
+      <button ion-button padding class="continue-button" block (click)="startApp()">
+        Get started
+      </button>
+    </ion-slide>
+
+  </ion-slides>
+</ion-content>

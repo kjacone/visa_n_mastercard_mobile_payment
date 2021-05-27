@@ -1,0 +1,41 @@
+<ion-slides style="height:30vh">
+    <ion-slide *ngFor="let card of cards" padding>
+        <ion-grid [class.cardON]="true" [class.cardOFF]="false">
+            <ion-row>
+                <ion-col class="state">
+                    <div class="msg">
+                        <span [class.ON]="true" [class.cardOFF]="false"></span> Card ON
+                    </div>
+                </ion-col>
+                <ion-col class="logo">
+                    <img class="brand" src="assets/card-img/visa.png">
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="chip">
+                    <img style="float:left" src="assets/card-img/chip.png">
+                </ion-col>
+            </ion-row>
+            <ion-row class="digits">
+                <ion-col class="number">
+                    {{card.pan_masked}}
+                </ion-col>
+
+            </ion-row>
+            <ion-row>
+                <ion-col class="name">
+                    {{card.Name}}
+                </ion-col>
+
+            </ion-row>
+            <ion-row>
+                <ion-col class="date">
+                    Expires: {{card.expirationMonth}}/{{card.expirationYear}}
+                </ion-col>
+                <!-- <ion-col class="bank">
+                    Enrolled: {{card.date_created}}
+                </ion-col> -->
+            </ion-row>
+        </ion-grid>
+    </ion-slide>
+</ion-slides>
