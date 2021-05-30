@@ -28,12 +28,18 @@ export class PinchangePage {
   reg() {
     this.error = 0;
     this.data.mobile =  this.globalVars.trimPhome( this.data.mobile );
-    if ( this.data.name == "" || this.data.name == undefined ) {
-      this.error = 3;
-    } else if ( this.data.pin == "" || this.data.pin == undefined ) {
+    if ( this.data.firstname == "" || this.data.firstname == undefined ) {
       this.error = 1;
+     } if ( this.data.middlename == "" || this.data.middlename == undefined ) {
+        this.error = 2;
+      } if ( this.data.lastname == "" || this.data.lastname == undefined ) {
+        this.error = 3;
+      } if ( this.data.email == "" || this.data.email == undefined ) {
+        this.error = 4;
+    } else if ( this.data.pin == "" || this.data.pin == undefined ) {
+      this.error =5;
     } else if ( this.data.newpin != this.data.pin) {
-      this.error = 2;
+      this.error = 6;
     } else {
     
       this.submit();
@@ -60,10 +66,13 @@ export class PinchangePage {
 
   sendData() {
     this.alertService.showDefaultLoading();
-  
+    this.final_data.firstName = this.data.firstname;
+    this.final_data.middleName = this.data.middlename;
+    this.final_data.lastName = this.data.lastname;
+    this.final_data.email = this.data.email;
     this.final_data.phoneNumber = this.globalVars.trimPhome( this.data.mobile );
     this.final_data.enc_pin = this.globalVars.getHashPass( this.final_data.phoneNumber, this.data.pin );
-    this.final_data.userFullName = this.data.name;
+    this.final_data.userFullName = this.data.firstname + " " + this.data.middlename + " " + this.data.lastname;
     this.clientdata.sendData( this.final_data )
       .subscribe( data => {
         this.alertService.dismissDefaultLoading();
@@ -72,13 +81,14 @@ export class PinchangePage {
           let r_data = JSON.parse( data );
           if ( r_data.f39 == "00" ) {
             this.globalVars.saveUser( this.globalVars.trimPhome( this.final_data.phoneNumber ) );
-            this.showPaymentPrompt();
+            //this.showPaymentPrompt();
+            this.alertService.errorPop( "", r_data.f48, true );
+            this.navCtrl.setRoot('LoginPage');
 
           } else if ( r_data.f39 == "26" ) {
             this.globalVars.saveUser( this.globalVars.trimPhome( this.final_data.phoneNumber ) );
-            this.showPaymentPrompt();
+           // this.showPaymentPrompt();
             this.alertService.errorPop( "", r_data.f48, true );
-
           } else {
             this.alertService.errorPop( "", r_data.f48, true );
           }

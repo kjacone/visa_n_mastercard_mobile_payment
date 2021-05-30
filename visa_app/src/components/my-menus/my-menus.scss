@@ -1,0 +1,71 @@
+my-menus {
+  .inner{
+    display:flex;margin:auto;height:7vh;width:7vh;
+    }
+    .outerr{margin-left:0.25vh;padding:0.1vh;}
+
+
+    .my_mini_menu {
+      width: 30px;
+      height: 30px;
+      margin: auto;
+      .alertTitle {
+           background:rgba(0,0,0,.9);
+      }
+  }
+
+  .card-body{
+    color: rgb(26,31,113);
+    font-size: 1.0em;
+   
+  }
+  .status {
+    color: #8a8e91;
+    font-size: 0.8em;
+   
+  }
+  .card-image{
+    width:45px;
+    float:left;
+    margin: 5px 0px 15px 15px;
+  }
+  .minimenu {
+    font-family: Ubuntu;
+    text-transform: capitalize;
+    padding-top: 6px;
+    padding-bottom: 8px;
+    
+    margin: auto;
+    height: 70px;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    text-align: center;
+    color: #000000;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 2px;
+    // border: solid 0.3px #a7a7a7
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
