@@ -1,0 +1,19 @@
+{
+  "country": "US",
+  "firstName": "John",
+  "lastName": "Doe",
+  "phoneNumber": "255767525465",
+  "address2": "Address 2",
+  "address1": "1 Market St",
+  "postalCode": "94105",
+  "locality": "san francisco",
+  "administrativeArea": "CA",
+  "email": "test@cybs.com",
+  "transaction_code": "1234455666",
+  "totalAmount": "1.0",
+  "currency": "TZS",
+  "expirationYear": "2022",
+  "number": "4000000000000002",
+  "expirationMonth": "12",
+  "type": "001"
+}

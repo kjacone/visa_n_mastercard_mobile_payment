@@ -32,7 +32,12 @@ public class Registration  extends MustHave {
     public String createRequestBody(JSONObject incoming_request) throws JSONException {
      JSONObject pam = new JSONObject();
      pam.put("mobileNr",incoming_request.get("phoneNumber"));
+     pam.put("email",incoming_request.get("email"));
      pam.put("imei",incoming_request.get("imsi"));
+     pam.put("imsi",incoming_request.get("imsi"));
+     pam.put("firstName",incoming_request.get("firstName"));
+     pam.put("middleName",incoming_request.get("middleName"));
+     pam.put("lastName",incoming_request.get("lastName"));
      pam.put("userFullName",incoming_request.get("userFullName"));
      pam.put("userPin",incoming_request.get("enc_pin"));
      pam.put("deviceInfo",incoming_request.getJSONObject("deviceInfo"));
@@ -56,7 +61,8 @@ public class Registration  extends MustHave {
                 jess1.put("f39", "00");
                
             } else {
-                jess1.put("f48", "Failed " + jess.getString("Message"));
+//                jess1.put("f48", "Failed " + jess.getString("rspMessage"));
+                jess1.put("f48", "Failed kindly contact the administator for help");
                 jess1.put("f39", jess.getString("rspCode"));
 
             }

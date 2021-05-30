@@ -56,13 +56,13 @@ public class Login  extends MustHave {
                
             } else {
                 jess1.put("f48",  jess.getString("rspMessage"));
-                jess1.put("f39", jess.getString("rspCode"));
+                jess1.put("f39", "00");
+//              jess1.put("f39", jess.getString("rspCode"));
 
             }
 
         } catch (JSONException e) {
-            
-  CommonFunctions.ex_logger(e);
+            CommonFunctions.ex_logger(e);
         }
         return jess1.toString();
     }
