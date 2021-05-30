@@ -28,7 +28,7 @@
     "@ionic-native/core": "~4.11.0",
     "@ionic-native/device": "^4.11.0",
     "@ionic-native/geolocation": "^4.11.0",
-    "@ionic-native/in-app-browser": "^4.11.0",
+    "@ionic-native/in-app-browser": "^4.20.0",
     "@ionic-native/keyboard": "^4.11.0",
     "@ionic-native/network": "^4.11.0",
     "@ionic-native/sim": "^4.20.0",
@@ -43,13 +43,13 @@
     "@ngx-translate/http-loader": "^2.0.0",
     "call-number": "^1.0.1",
     "cordova-plugin-android-permissions": "^1.1.2",
+    "cordova-plugin-cleartext": "1.0.0",
     "cordova-plugin-compat": "^1.2.0",
     "cordova-plugin-contacts": "^2.3.1",
     "cordova-plugin-device": "^2.0.3",
     "cordova-plugin-geolocation": "^2.4.3",
     "cordova-plugin-inappbrowser": "^3.2.0",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
-    "cordova-plugin-ionic-webview": "^2.5.3",
     "cordova-plugin-network-information": "^2.0.2",
     "cordova-plugin-splashscreen": "^5.0.4",
     "cordova-plugin-whitelist": "^1.3.4",
@@ -79,9 +79,6 @@
       "cordova-plugin-whitelist": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
-      "cordova-plugin-ionic-webview": {
-        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
-      },
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-x-toast": {},
       "cordova-plugin-inappbrowser": {},
@@ -96,8 +93,11 @@
       "cordova-plugin-android-permissions": {},
       "mx.ferreyra.callnumber": {},
       "call-number": {},
-      "phonegap-plugin-barcodescanner": {},
-      "cordova-plugin-sim": {}
+      "phonegap-plugin-barcodescanner": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      },
+      "cordova-plugin-sim": {},
+      "cordova-plugin-cleartext": {}
     },
     "platforms": [
       "android"

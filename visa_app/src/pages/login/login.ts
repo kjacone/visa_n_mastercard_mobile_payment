@@ -21,7 +21,7 @@ export class LoginPage {
   ttype: string;
   pin: string = "";
 
-  rate: number = 0;  
+  rate: number = 0;
   pinEntry: boolean;
   steps: number = 0;
   enteredKey: string;
@@ -36,7 +36,7 @@ export class LoginPage {
   final_data: any = { type: "1004", enc_pin: "" };
   encryptIsPresent = false;
   public unregisterBackButtonAction: any;
- 
+
   customer: any;
   err: any;
   constructor(
@@ -76,7 +76,7 @@ export class LoginPage {
       this.four = "grad-pin-active";
       console.log( 'PIN: ' + this.pin );
       this.sendData();
-    } else { 
+    } else {
       this.one = "grad-pin";
       this.two = "grad-pin";
       this.three = "grad-pin";
@@ -187,7 +187,7 @@ export class LoginPage {
     this.exit();
   }
 
-  
+
   exit() {
     let message = "Are you sure you want to quit from the application?";
 
@@ -214,18 +214,21 @@ popmeth( message ) {
   myModal.onDidDismiss( data => {
     console.log( "Data =>" + data );
     if ( data ) {
-     
+
     }
     else {
-     
+
     }
   } );
 }
 
 
 
-logine() { 
+logine() {
    this.navCtrl.setRoot( 'WalletPage' );
+}
+reg(){
+  this.navCtrl.setRoot( 'PinchangePage' );
 }
 
 calculate( numb ) {

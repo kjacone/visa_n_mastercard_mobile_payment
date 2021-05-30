@@ -12,7 +12,7 @@ import { Device } from '@ionic-native/device';
 @Injectable()
 export class ClientdataProvider {
 
-    
+
 
     url = 'http://eximiousdev.ngrok.io/visa_api/visa_api';
     google_url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-6.805293,39.252749&radius=1500&type=club&keyword=event&key=AIzaSyAD941hRyogzLW-7f7RBRXsOKeK5kVIgMo';
@@ -23,7 +23,7 @@ export class ClientdataProvider {
     iv: string = "ab765f987654321098765a98765abcd0";
     sample_data: any = {
         "esbRequest": { "f2": "255765874564", "f3": "1001","channel":"APP", "data": {} }, "mnoSession": { "id": "21091508", "imsi": "",  "lang": "en", "location": {}, "deviceid": ""} }
-        
+
     constructor( public device: Device,public http: Http, public globalVars: GlobalVarsProvider ) {
 
     }
@@ -41,9 +41,9 @@ export class ClientdataProvider {
     getPost( user: any ) {
 
         let headers = new Headers( {
-            'Content-Type': 'application/json',
-            'token': this.token
-        //    'X-FORWARDED_FOR': this.myhmac
+            //'Content-Type': 'application/json',
+            'token': this.token,
+           'X-FORWARDED_FOR': this.myhmac
         } );
         let send_data = this.sample_data;
         send_data.esbRequest.data = user;
@@ -70,7 +70,7 @@ export class ClientdataProvider {
         return this.http.post( this.url, body, options )
             .timeout( 20000 )
             .map(( data: Response ) =>
-         
+
                     data.json()  )
             .catch( this.handleError );
 
@@ -96,4 +96,3 @@ export class ClientdataProvider {
         return Observable.throw( error.json() );
     }
 }
-

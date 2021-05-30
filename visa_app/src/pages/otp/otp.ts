@@ -31,7 +31,7 @@ export class OtpPage {
   constructor( public navCtrl: NavController, public navParams: NavParams, public app: App, public globalVars: GlobalVarsProvider, public alertService: AlertServiceProvider,
     public modalCtrl: ModalController, public clientdata: ClientdataProvider,
     public androidPermissions: AndroidPermissions, public platform: Platform, public callNumber: CallNumber ) {
-  
+
     this.general = LanguageProvider.getLang( 'en' ).general;
     // console.log( this.err );
     //this.submittt();
@@ -40,10 +40,10 @@ export class OtpPage {
 
   verifyOTP() {
     if ( this.data.code == this.otpied ) {
-     // this.globalVars.saveUser( this.globalVars.trimPhome( this.globalVars.mobileNo ) );
+     this.globalVars.saveUser( this.globalVars.trimPhome(  this.data.phoneNumber ) );
       this.globalVars.mobileNo = this.data.phoneNumber;
-      this.alertService.errorPop( "PinchangePage","OTP verification was Successful",true );
-   
+      this.alertService.errorPop( "LoginPage","OTP verification was Successful",true );
+
 
     } else {
       console.log( "fail" );
@@ -80,7 +80,7 @@ export class OtpPage {
 
 
           } else {
-         
+
             this.alertService.errorPop( "", this.general.timeout, true );
           }
         }, error => {

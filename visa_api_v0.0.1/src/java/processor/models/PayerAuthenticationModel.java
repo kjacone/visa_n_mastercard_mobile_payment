@@ -102,7 +102,7 @@ public class PayerAuthenticationModel {
             paymentInformation_1.put("expirationYear", exp_year);
             paymentInformation_1.put("number", paymentInformation.get("number"));
             paymentInformation_1.put("expirationMonth", exp_month);
-            paymentInformation_1.put("type", "001");
+            paymentInformation_1.put("type", paymentInformation.get("type"));
             paymentInformation_1.put("cvv2", "123");
             paymentInformation_2.put("card", paymentInformation_1);
             this.paymentInformation.put("paymentInformation", paymentInformation_2);

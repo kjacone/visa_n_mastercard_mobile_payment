@@ -14,4 +14,47 @@
 
 
 
+  <div padding>
+
+
+      <div style="padding:0.9vh;font-family:'AvenirLight';font-size:1.8vh"> To Mobile</div>
+      <ion-row  text-center  no-padding  style="color:#333" >
+        <ion-col col-4 no-padding  >
+          <div (click)="openPage('tigo')" class="outer">
+            <div style=" display:flex;margin:auto;height:6vh;width:6vh;">
+              <img  src="assets/svg/airtime/tigo.svg" /> </div>
+              <p class="para">
+                TigoPesa</p>
+            </div>
+        </ion-col>
+        <ion-col col-4 no-padding >
+          <div (click)="openPage('vodacom')" class="outer">
+            <div style=" display:flex;margin:auto;height:6vh;width:6vh;">
+              <img  src="assets/svg/airtime/vodacom.svg" /> </div>
+              <p class="para">
+                 Mpesa</p>
+
+            </div>
+        </ion-col>
+        <ion-col col-4 no-padding style="height:100px;">
+          <div (click)="openPage('airtel');" class="outer">
+            <div style=" display:flex;margin:auto;height:6vh;width:6vh;">
+              <img  src="assets/svg/airtime/airtel.svg" /> </div>
+              <p class="para">
+             Airtel </p>
+
+            </div>
+        </ion-col>
+        <ion-col col-4 no-padding style="height:100px;">
+          <div (click)="openPage('halotel');" class="outer">
+            <div style=" display:flex;margin:auto;height:6vh;width:6vh;">
+              <img  src="assets/svg/ft/halotel.svg" /> </div>
+              <p class="para">
+                Halotel</p>
+            </div>
+        </ion-col>
+      </ion-row>
+    </div>
+
+
 </ion-content>

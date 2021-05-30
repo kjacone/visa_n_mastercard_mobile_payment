@@ -37,7 +37,8 @@ public class LogEngine {
 
     public LogEngine(String filename, String msg) {
         this.filename = filename;
-        this.msg = (maskCardNumber(msg)).replaceAll("(?<!\\d)\\d{4,5}(?!\\d)", "XXXX");
+        this.msg = msg;
+//        this.msg = (maskCardNumber(msg)).replaceAll("(?<!\\d)\\d{4,5}(?!\\d)", "XXXX");
     }
 
     public static String maskCardNumber(String text) {

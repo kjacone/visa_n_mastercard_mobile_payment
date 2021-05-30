@@ -5,20 +5,18 @@
     <head>
         <title>3ds auth Form</title>
     </head>
-    <script type="text/javascript">
-        window.onload = formSubmit;
-        function formSubmit() {
-            document.forms[0].submit();
-        }
-    </script>
+    
     <body>
-        <form method="post" id="PAEnrollForm" name="PAEnrollForm"  target="paInlineFrame"  action="<c:url value="<%= request.getParameter("url").replaceAll("~", "&").replaceAll("_", "=") %>"/>">
-            <input type="hidden" name="PaReq" value="<%= request.getParameter("PaReq").replaceAll("~", "&").replaceAll("_", "=") %>"/>
-            <input type="hidden" name="TermUrl" value="http://eximious.ngrok.io/payments/webhook"/>
-            <input type="hidden" name="MD" value="<%= request.getParameter("xid").replaceAll("~", "&").replaceAll("_", "=") %>"/>
-        </form>
-            
        
-
+       <script language="javascript" type="text/javascript">
+function windowClose() {
+window.open('','_parent','');
+window.close();
+}
+</script>
+        <input type="button" value="Close this window" onclick="self.close()">
+        <h2>3DS was successful</h2>     
+   
+<input type="button" value="Close this window" onclick="windowClose();">
     </body>
 </html>

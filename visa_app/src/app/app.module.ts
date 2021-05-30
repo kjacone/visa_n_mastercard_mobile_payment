@@ -14,7 +14,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Items } from '../mocks/providers/items';
 import { Sim } from '@ionic-native/sim';
 import { MyApp } from './app.component';
-
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { ClientdataProvider } from '../providers/clientdata/clientdata';
 // import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
 import { Network } from '@ionic-native/network';
@@ -37,7 +37,7 @@ export function provideSettings(storage: Storage) {
    * You can add new settings options at any time. Once the settings are saved,
    * these values will not overwrite the saved values (this can be done manually if desired).
    */
- 
+
 }
 
 @NgModule({
@@ -64,7 +64,7 @@ export function provideSettings(storage: Storage) {
     MyApp
   ],
   providers: [ AndroidPermissions, CallNumber, Network,Device,
-    Items, BarcodeScanner, Sim,
+    Items, BarcodeScanner, Sim,InAppBrowser,
     Camera,
     Contacts,
     ContactsProvider, GlobalVarsProvider, AlertServiceProvider, ClientdataProvider,

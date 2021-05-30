@@ -23,9 +23,12 @@ export class AuthWebviewPage {
     let data = navParams.get( 'data' );
     this.res = data;
     let final_url = "https://eximiousdev.ngrok.io/visa_api/auth3ds.jsp?"+"url="+(data.acsUrl).replaceAll("&","~").replaceAll("=","_")+"&PaReq="+(data.pareq).replaceAll("&","~").replaceAll("=","_")+"&xid="+(data.xid).replaceAll("&","~").replaceAll("=","_");
-    
+    console.log(final_url);
     this.sanitizer = dSanitizer;
-     this.safeUrl =  this.sanitizer.bypassSecurityTrustResourceUrl(final_url+'/override-http-headers-default-settings-x-frame-options');
+     // this.safeUrl =  this.sanitizer.bypassSecurityTrustResourceUrl(final_url+'/override-http-headers-default-settings-x-frame-options');
+     this.safeUrl =  this.sanitizer.bypassSecurityTrustResourceUrl(final_url);
+
+
   }
 
   ngOnInit() {
@@ -41,8 +44,8 @@ export class AuthWebviewPage {
   }
 
   dismissLoading() {
-    
-    this.loading.dismiss(); 
+
+    this.loading.dismiss();
   }
 
 

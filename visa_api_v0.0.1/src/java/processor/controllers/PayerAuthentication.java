@@ -78,7 +78,7 @@ public final class PayerAuthentication extends MustHave {
            // jess1.put("status", status);
             if(status.equals("00")){
 //            if(status.equalsIgnoreCase("PENDING_AUTHENTICATION")){
-                System.out.println("***** to 3DS");
+               // System.out.println("***** to 3DS");
                 json3DS.put("acsUrl", jess.getJSONObject("consumerAuthenticationInformation").get("acsUrl").toString());
                 json3DS.put("TermUrl", jess.getString("ReturnUrl"));
                 json3DS.put("xid", jess.getJSONObject("consumerAuthenticationInformation").get("xid").toString());
