@@ -1,0 +1,72 @@
+
+  <!-- <ion-row >
+    <ion-col col-6 >
+      <ion-card class="outerr" >
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="assets/svg/quick_access/digital_kibubu.svg">
+          </ion-avatar>
+          <h2>Marty McFly</h2>
+          <p>November 5, 1955</p>
+        </ion-item>
+      </ion-card>
+    </ion-col>
+    <ion-col col-6 >
+      <ion-card class="outerr" >
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="assets/svg/quick_access/digital_kibubu.svg">
+          </ion-avatar>
+          <h2>Marty McFly</h2>
+          <p>November 5, 1955</p>
+        </ion-item>
+      </ion-card>
+    </ion-col>
+  </ion-row> -->
+
+
+
+
+  <ion-grid fixed>
+
+    <ion-row wrap>
+
+        <ion-col (click)="openPage('statements')">
+            <div class="minimenu">
+                  <img class="card-image" src="assets/svg/quick_access/digital_kibubu.svg">
+                <h2 class="card-body"> VISA Transactions</h2>
+            </div>
+        </ion-col>
+
+        <ion-col (click)="openPage('add_card')">
+          <div class="minimenu">
+                <img class="card-image" src="assets/svg/quick_access/digital_kibubu.svg">
+              <h2 class="card-body">Add Card 3DS authentication</h2>
+          </div>
+      </ion-col>
+      
+    </ion-row>
+
+    <ion-row wrap>
+
+      <ion-col (click)="openPage('gepg')">
+          <div class="minimenu">
+                <img class="card-image" src="assets/svg/quick_access/digital_kibubu.svg">
+              <h2 class="card-body"> GEPG Payment </h2>
+          </div>
+      </ion-col>
+
+      <ion-col (click)="openPage('mobile_money')">
+        <div class="minimenu">
+              <img class="card-image" src="assets/svg/quick_access/digital_kibubu.svg">
+            <h2 class="card-body">Mobile Money</h2>
+        </div>
+    </ion-col>
+    
+  </ion-row>
+
+
+
+
+
+</ion-grid>

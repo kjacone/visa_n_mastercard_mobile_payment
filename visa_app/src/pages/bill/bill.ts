@@ -24,8 +24,7 @@ export class BillPage {
   data = { account_from: "" }
   accounts = ["0724727999","23434827283"];
   constructor( public navCtrl: NavController, public navParams: NavParams ) {
-    let data = navParams.get( 'data' );
-    this.title = data.name
+   
   }
 
  

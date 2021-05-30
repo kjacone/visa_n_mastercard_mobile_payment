@@ -282,6 +282,8 @@ export class WalletPage {
   
   }
 
+
+
   submitted() {
     this.alertService.showDefaultLoading();
     this.clientdata.sendData( this.data )

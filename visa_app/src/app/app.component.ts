@@ -73,10 +73,6 @@ export class MyApp {
           console.log( "Dataz::::", decrypted );
           this.globalVars.mobileNo = decrypted;
           this.auth();
-
-        //  this.rootPage = 'SignupPage';
-
-
         } else {
           this.rootPage = 'OtpPage';
         }

@@ -36,14 +36,14 @@ export class ClientdataProvider {
                     data.json()
             )
             .catch( this.handleError );
-
     }
+
     getPost( user: any ) {
 
         let headers = new Headers( {
             'Content-Type': 'application/json',
-            'token': this.token,
-            // 'X-FORWARDED_FOR': this.myhmac
+            'token': this.token
+        //    'X-FORWARDED_FOR': this.myhmac
         } );
         let send_data = this.sample_data;
         send_data.esbRequest.data = user;
@@ -62,8 +62,6 @@ export class ClientdataProvider {
         send_data.mnoSession.deviceid = this.device.uuid;
         send_data.mnoSession.imsi = this.device.uuid;
         send_data.mnoSession.lang = 'en';
-      
-      
 
         //var body = this.JSONify( user );
         var body = JSON.stringify( send_data );
@@ -71,10 +69,9 @@ export class ClientdataProvider {
         let options = new RequestOptions( { headers: headers } );
         return this.http.post( this.url, body, options )
             .timeout( 20000 )
-            .map(
-                ( data: Response ) =>
-                    data.json()
-            )
+            .map(( data: Response ) =>
+         
+                    data.json()  )
             .catch( this.handleError );
 
     }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { IonicPage, NavController, ModalController } from 'ionic-angular';
+import { IonicPage, Platform, NavController, ModalController } from 'ionic-angular';
 import { GlobalVarsProvider } from '../../providers/global-vars/global-vars';
 import { AlertServiceProvider } from '../../providers/alert-service/alert-service';
 import { ClientdataProvider } from '../../providers/clientdata/clientdata';
@@ -27,7 +27,9 @@ export class SignupPage {
   error: number = 0;
  
   card_number: any = "";
-  constructor( private formBuilder: FormBuilder, public navCtrl: NavController, public globalVars: GlobalVarsProvider, public alertService: AlertServiceProvider,
+  public unregisterBackButtonAction: any;
+
+  constructor(public platform: Platform, private formBuilder: FormBuilder, public navCtrl: NavController, public globalVars: GlobalVarsProvider, public alertService: AlertServiceProvider,
      public modalCtrl: ModalController, public clientdata: ClientdataProvider ) {
     this.lang = LanguageProvider.getLang( 'en' ).signup;
     this.general = LanguageProvider.getLang( 'en' ).general;
@@ -180,7 +182,27 @@ export class SignupPage {
   }
 
 
+  public initializeBackButtonCustomHandler(): void {
+    this.unregisterBackButtonAction = this.platform.registerBackButtonAction(() => {
+      this.customHandleBackButton();
+    }, 10);
+  }
 
+  private customHandleBackButton(): void {
+    // do what you need to do here ...
+    this.navCtrl.setRoot('WalletPage');
+  }
+  ionViewDidEnter() {
+    this.initializeBackButtonCustomHandler();
+
+  }
+
+
+
+  ionViewWillLeave() {
+    // Unregister the custom back button action for this page
+    this.unregisterBackButtonAction && this.unregisterBackButtonAction();
+  }
 
 
 }

@@ -10,10 +10,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-fdr',
-  templateUrl: 'fdr.html',
+  selector: 'page-mobile-money',
+  templateUrl: 'mobile-money.html',
 })
-export class FdrPage {
+export class MobileMoneyPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

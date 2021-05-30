@@ -5,7 +5,7 @@ import { RecentTransactionsComponent } from '../../components/recent-transaction
 import { MyCardsComponent } from '../../components/my-cards/my-cards';
 import { BillerScrollComponent } from '../../components/biller-scroll/biller-scroll';
 import { MenuFooterComponent } from '../../components/menu-footer/menu-footer';
-
+import { MyMenusComponent } from '../../components/my-menus/my-menus';
 @NgModule({
 imports: [
 
@@ -13,7 +13,7 @@ imports: [
     IonicPageModule.forChild( WalletPage)
   ],
   entryComponents: [RecentTransactionsComponent],
-  declarations: [WalletPage, RecentTransactionsComponent,MyCardsComponent,BillerScrollComponent,MenuFooterComponent]
+  declarations: [WalletPage, RecentTransactionsComponent,MyMenusComponent,MyCardsComponent,BillerScrollComponent,MenuFooterComponent]
 })
 
 
