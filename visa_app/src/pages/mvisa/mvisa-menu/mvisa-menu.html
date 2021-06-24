@@ -1,0 +1,80 @@
+<ion-header no-border>
+  <ion-toolbar color="secondary">
+    <ion-buttons left>
+      <button ion-button icon-only (click)="goHome()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center><img src="assets/icon/mvisa-logo1.png" style="height:24px;" /></ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goHome()">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="grey">
+
+
+  <ion-card class="vcard">
+    <ion-row>
+      <ion-col> <button ion-button icon-only clear (click)="presentActionSheet()">
+          <ion-icon name="md-more" color="white"></ion-icon>
+        </button></ion-col>
+      <ion-col> <button ion-button icon-only clear text-right style="float:right" (click)="goMain()">
+          <ion-icon name="arrow-forward" color="white"></ion-icon>
+        </button></ion-col>
+    </ion-row>
+    <ion-row text-center (click)="goMain()" >
+      <ion-col>
+        <p style="color:#ffffff;margin-top:3vh;text-align: center;font-size: 3.0vh">
+          {{ globalVars.getUsername() }} </p>
+      </ion-col>
+    </ion-row>
+    <ion-row text-center (click)="goMain()">
+      <ion-col>
+        <p style="color:#ffffff;text-align: center;font-size: 1.7vh">
+          12/03/2018 </p>
+      </ion-col>
+    </ion-row>
+    <ion-row style="margin:auto;padding:2vh" (click)="goMain()">
+      <ion-col text-left>
+        <p style="color:#ffffff;font-size: 2.0vh">
+          {{ globalVars.customername |uppercase }} </p>
+
+      </ion-col>
+      <ion-col>
+        <img src="assets/icon/mvisa-logo.png" style="width:7vh;float:right" />
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card class="vcard" (click)="openActivePage('VisaactivatePage')">
+    <ion-row>
+        <ion-col col-9 style="margin:auto;">
+          <p style="color:#ffffff;margin:auto;text-align: center;font-size: 3.0vh">
+            Create   <img src="assets/icon/mvisa-logo.png" style="width:10vh;float:right" /> </p>
+        </ion-col>
+      <ion-col> <button ion-button icon-only clear text-right style="float:right">
+          <ion-icon name="arrow-forward" color="white"></ion-icon>
+        </button></ion-col>
+    </ion-row>
+
+</ion-card>
+
+
+  <ion-card>
+      <div style="padding:0.5vh;font-family: 'AvenirBold';font-size:2.0vh;text-align:center;color:#000"> MVisa Safety</div>
+    <div style="font-family: 'Avenir';color:#666;font-size:1.6vh;text-align:left;line-height: 2vh" padding>
+      <p>1. Keep your username and PIN confidential at all times</p>
+      <p>2. Never store your username and PIN in your phone.</p>
+      <p>3. Notify DCB Digital in case of :<br> a. suspicious log in in your app<br> b. in case of suspicious transaction in your account</p>
+      <p>4. Only download or upgrade DCB Digital App through Google Play Store and Apple Store.</p>
+      <p>5. Once you have completed your transaction, log out of DCB Digital app before closing the app.</p>
+      <p>6. Access DCB Digital App on secure wireless network. Do not use public Wi-Fi hotspots. Unsecure networks can expose sensitive data, making it vulnerable to hackers.</p>
+    </div>
+  </ion-card>
+
+</ion-content>

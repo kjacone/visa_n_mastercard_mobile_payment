@@ -43,7 +43,7 @@ export class ClientdataProvider {
         let headers = new Headers( {
             //'Content-Type': 'application/json',
             'token': this.token,
-           'X-FORWARDED_FOR': this.myhmac
+           // 'X-FORWARDED_FOR': this.myhmac
         } );
         let send_data = this.sample_data;
         send_data.esbRequest.data = user;

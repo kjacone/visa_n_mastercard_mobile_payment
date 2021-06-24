@@ -189,6 +189,7 @@ public class visa_api extends HttpServlet {
             throws ServletException, IOException {
         try {
 
+            System.out.println("incoming"+ request);
             processRequest(request, response);
         } catch (Exception e) {
             StringWriter sw = new StringWriter();

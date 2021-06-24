@@ -1,0 +1,97 @@
+<ion-header class="toolbar-panel">
+    <div class="toolbar" style="height: 50px;" padding>
+        <img src="assets/img/back.svg" navPop class="backbutton" style="height:50px" />
+        <p style="font-size: 3.0vh; font-weight: bold;color:#fff" text-wrap ion-text>GEPG </p>
+
+        <span class="icons">
+			 <div class="notification" (click)="home()">
+			 <img src="assets/img/house.svg" style="height:50px"/>
+
+		 </div>
+		 </span>
+    </div>
+</ion-header>
+
+
+
+<ion-content class="back-view">
+    <div *ngIf="!data_response">
+        <ion-card padding>
+            <div>
+                <ion-label color="primary" style="width:100%" stacked>Pay from:</ion-label>
+                <ion-row class="myinput">
+                    <ion-col>
+                        <ion-select interface="popover" [(ngModel)]="objectblock.account" style="max-width:auto;min-width:100%;text-align:left;border:none">
+                            <ion-option *ngFor="let account of accounts" value="{{account}}"> {{account}}
+                            </ion-option>
+                        </ion-select>
+                    </ion-col>
+                </ion-row>
+            </div>
+
+            <div>
+                <ion-label style="width:100%" color="primary" stacked>Control number</ion-label>
+                <ion-row class="myinput">
+                    <ion-col>
+                        <ion-input style="max-width:auto;min-width:95%;text-align:left;border:none" type="tel" [(ngModel)]="objectblock.accountto"></ion-input>
+                    </ion-col>
+                    <ion-col col-2 class="center" (click)="scanQR()">
+                        <ion-icon name="md-qr-scanner" style="font-size:25px" color="primary"></ion-icon>
+                    </ion-col>
+                </ion-row>
+            </div>
+
+
+            <ion-row *ngIf="amountForm2">
+                <ion-col>
+                    <ion-label style="width:100%" color="primary" stacked> Amount</ion-label>
+                    <ion-input class="myinput" style="max-width:auto;min-width:100%;text-align:left" type="tel" [(ngModel)]="objectblock.amount"></ion-input>
+                </ion-col>
+            </ion-row>
+
+            <div>
+                <button ion-button color="dark2"  (click)="submit(objectblock)" *ngIf="!amountForm" block>Submit</button>
+            </div>
+
+
+            <div *ngIf="amountForm" style="background:#fff">
+                <div style="font-size:12px;text-align:center" padding><span style="font-weight:bold">
+                        {{pptdata.SpName}} </span></div>
+                <p style="font-size:12px;padding:7px;text-align:center">Payment Name: <span style="font-weight:bold">{{pptdata.PyrName}}</span><br></p>
+                <p style="font-size:12px;padding:7px;text-align:center">Bill Control Number: <span style="font-weight:bold">{{pptdata.BillCtrNum}}</span><br></p>
+                <p style="font-size:12px;padding:7px;text-align:center">{{pptdata.BillPayOpt}} Payment Paid before: <span style="font-weight:bold">{{pptdata.BillExprDt
+                        | date}}</span><br></p>
+                <p style="font-size:14px;text-align:center">{{pptdata.CCy }} <span style="font-weight:bold">{{pptdata.BillAmt
+                        }}</span><br></p>
+            </div>
+
+            <ion-row *ngIf="amountForm1">
+                <ion-col>
+                    <ion-label>Amount</ion-label>
+                    <ion-input class="myinput" style="max-width:auto;min-width:100%;text-align:left" type="tel" [(ngModel)]="objectblock.amount"></ion-input>
+                </ion-col>
+            </ion-row>
+
+            <ion-row *ngIf="amountForm3">
+                <ion-col>
+                    <ion-label>Amount</ion-label>
+                    <ion-input class="myinput" style="max-width:auto;min-width:100%;text-align:left" type="tel" [(ngModel)]="objectblock.amount" readonly></ion-input>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <button class="mybutt" ion-button color="dark2"  (click)="submitAmount(objectblock)" *ngIf="amountForm" block>Pay</button>
+            </ion-row>
+
+    </ion-card>
+
+    </div>
+
+    <div *ngIf="data_response" class="themid">
+
+        <ion-row no-margin padding>
+            <img src="assets/img/spin.svg" style="height:120px;margin:auto;display: block;" />
+            <p style="text-align:center;color:#00ADEE;font-size:14px;width:100%"><b>processing your bill...</b> </p>
+        </ion-row>
+    </div>
+</ion-content>

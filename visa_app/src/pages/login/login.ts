@@ -48,7 +48,7 @@ export class LoginPage {
 
     //this.data = navParams.get( 'data' );
 
-    this.data.phoneNumber = globalVars.mobileNo;
+    this.data.phoneNumber = this.globalVars.mobileNo;
 
     this.err = LanguageProvider.getLang( 'en' ).general;
   }
@@ -88,7 +88,8 @@ export class LoginPage {
 
   sendData() {
     this.alertService.showDefaultLoading();
-    this.final_data.phoneNumber = this.globalVars.trimPhome( this.data.phoneNumber );
+  //  this.final_data.phoneNumber = this.globalVars.trimPhome( this.data.phoneNumber );
+    this.final_data.phoneNumber = this.globalVars.mobileNo;
     this.final_data.enc_pin = this.globalVars.getHashPass( this.final_data.phoneNumber, this.pin );
     this.pin = "";
     this.playnum();

@@ -18,42 +18,32 @@ export class AuthWebviewPage {
   };
   loading: any;
   res: any = {};
-  constructor( public platform: Platform, private loadingCtrl:LoadingController, private dSanitizer: DomSanitizer,public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController,
-    public globalVars: GlobalVarsProvider) {
-    let data = navParams.get( 'data' );
-    this.res = data;
-    let final_url = "https://eximiousdev.ngrok.io/visa_api/auth3ds.jsp?"+"url="+(data.acsUrl).replaceAll("&","~").replaceAll("=","_")+"&PaReq="+(data.pareq).replaceAll("&","~").replaceAll("=","_")+"&xid="+(data.xid).replaceAll("&","~").replaceAll("=","_");
-    console.log(final_url);
-    this.sanitizer = dSanitizer;
-     // this.safeUrl =  this.sanitizer.bypassSecurityTrustResourceUrl(final_url+'/override-http-headers-default-settings-x-frame-options');
-     this.safeUrl =  this.sanitizer.bypassSecurityTrustResourceUrl(final_url);
+  response: string = "Your request is being processed";
+  statements: any = {};
+cssclass:string = "statements"
+  next: string = "";
 
 
+constructor( public navCtrl: NavController, public navParams: NavParams ) {
+  let data = navParams.get( "data" );
+  // console.log( "Receipt: ", data );
+  console.log(data);
+this.statements = data;
   }
 
-  ngOnInit() {
-    // this.presentLoading();
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ReceiptPage');
   }
-
-  presentLoading() {
-    this.loading = this.loadingCtrl.create( {
-      content: 'Please wait...'
-    } );
-
-    this.loading.present();
+  goHome() {
+    this.navCtrl.setRoot( 'WalletPage' );
   }
+  goNext() {
+    if ( this.next == "" ) {
+      this.navCtrl.setRoot( 'WalletPage' );
+    } else {
+      this.navCtrl.setRoot( this.next);
+    }
 
-  dismissLoading() {
-
-    this.loading.dismiss();
   }
-
-
-
-
-  close() {
-    this.viewCtrl.dismiss();
-  }
-
 
 }

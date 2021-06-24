@@ -1,0 +1,69 @@
+<ion-header no-border>
+    <ion-toolbar color="secondary">
+        <ion-buttons left>
+            <button ion-button icon-only (click)="openPage('MvisaMenuPage')">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+        </ion-buttons>
+        <ion-title text-center><img src="assets/icon/mvisa-logo.png" style="height:24px;" /></ion-title>
+        
+    </ion-toolbar>
+</ion-header>
+<ion-content class="back-view">
+    <div style="margin: -10px -10px; height: 27vh; background-color: #d8d8de">
+        <ion-card style="text-align: left; height: 20vh; background-color: #e1eaf2">
+            <div style="margin: 20px 30px 10px 30px!important;padding: 10px 0px 10px">
+                <p style="color:#005aa9;font-size: 2vh; text-align: center">Welcome <span style="font-size: 2vh">{{ globalVars.customername }}</span></p>
+                <ion-row>
+                    <ion-col (click)="makeCifInquiryRequest()" style="text-align: center">
+                        <p style="padding-top:5px;color:#005aa9;font-size:2.3vh">Account Number</p>
+                        <p style="color:#000000;font-size:2.3vh;margin-top: 10px">{{ globalVars.getUsername() }}</p>
+                    </ion-col>
+                    <ion-col style="text-align: center">
+                        <p style="padding-top:5px;color:#005aa9;font-size:2.3vh;">Linked Mobile</p>
+                        <p style="color:#000000;font-size:2.3vh;margin-top: 10px">{{ globalVars.getUsername() }}</p>
+                    </ion-col>
+                </ion-row>
+            </div>
+        </ion-card>
+        <div>
+            <p style="color: #0257A7; text-align: center; font-size: 2.5vh">Recent Transactions</p>
+        </div>
+    </div>
+    <br>
+    <div style="height:50%;" class="back-view">
+        <P *ngIf="historyAvailable == 'no'" style="text-align: center">You have no transaction history</P>
+        <ion-list no-margin *ngIf="historyAvailable == 'yes'">
+            <ion-item *ngFor="let trans of trasactions">
+                <p style="font-size: 2vh">{{ trans.TRANDATETIME }}</p>
+                <p style="color: red;font-size:2vh;" item-right>TZS {{ trans.AMOUNT }}</p>
+                <p style="font-size: 2vh;color:#000000">{{ getStatementNarration(trans.DR_CR)}}<br> {{ trans.SENDERNAME }}
+                </p>
+                <!--<p style="color: green;font-size:2vh;" item-right *ngIf="trans.DR_CR == 'CR'">TZS {{ trans.AMOUNT }}</p>-->
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>
+<ion-toolbar no-border class="hide-on-keyboard-open footer-back" style="margin:0px;position:fixed;bottom:0;background:#888 ">
+    <ion-row center baseline style="font-size:10px;background:#f26e21;padding:10px">
+
+        <ion-col style="border-right:solid 1px #fff" (click)="openPage('LipamvisaPage')">
+            <div style="text-align:center;color:#ffffff">
+                <img src="assets/icon/qr-code.png" style="height:4vh;" />
+                <br> Scan to Pay
+            </div>
+        </ion-col>
+        <ion-col style="border-right:solid 1px #fff" (click)="openPage('SendmoneyvisaPage')">
+            <div style="text-align:center;color:#ffffff">
+                <img src="assets/icon/visa-send-money.png" style="height:4vh;" />
+                <br> Send Money
+            </div>
+        </ion-col>
+        <ion-col (click)="openPage('WithdrawvisaPage')">
+            <div style="text-align:center;color:#ffffff">
+                <img src="assets/icon/visa-merchant.png" style="height:4vh;" />
+                <br> Withdraw Cash
+            </div>
+        </ion-col>
+    </ion-row>
+</ion-toolbar>

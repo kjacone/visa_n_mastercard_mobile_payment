@@ -1,0 +1,31 @@
+page-lipamvisa {
+  .square-box{
+    position: relative;
+    width: 50%;
+    overflow: hidden;
+    background: none transparent
+  }
+  .square-box:before{
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+  .square-content{
+    position:  absolute;
+    top: 8vh;
+    left: 8vh;
+    bottom: 0;
+    right: 0;
+  }
+  .square-content div {
+    display: table;
+    width: 30vh;
+    height: 30vh;
+  }
+  .square-content span {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color: white
+  }
+}

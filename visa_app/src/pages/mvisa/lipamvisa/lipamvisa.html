@@ -1,0 +1,148 @@
+<ion-header no-border>
+    <ion-navbar hideBackButton color="secondary">
+        <ion-buttons left>
+            <button ion-button navPop icon-only>
+        <ion-icon ios="ios-arrow-back" md="md-arrow-back" color="mywhite"></ion-icon>
+      </button>
+        </ion-buttons>
+        <ion-title text-center>Scan to Pay</ion-title>
+    </ion-navbar>
+    <div style="margin: -10px -10px; height: 12vh; background-color: #d8d8de" *ngIf="menus == 'scan' && !scanned">
+        <ion-card style="text-align: center; height: 11vh; background-color: #e1eaf2">
+            <div style="margin: 5px 30px 10px 30px!important;padding: 10px 0px 10px">
+                <p style="color:#000000;font-size:2vh;margin-top: 2px">
+                    Hold your camera on the QR code to withdraw cash from supported networks</p>
+            </div>
+        </ion-card>
+    </div>
+</ion-header>
+<ion-content style="background: none transparent;" *ngIf="menus == 'scan' && !scanned">
+    <div style="background-color: #000; height: 16.6vh;margin-bottom: -1px">
+
+    </div>
+  <div style="background-image: url('assets/img/slideshow/scan1.png'); background-size: cover; height: 40vh;border-radius:5vh">
+        <ion-row style="background: none transparent; height: 40vh;">
+            <ion-col col-2 style="background-color: #000;" no-border></ion-col>
+            <ion-col col-8>
+
+            </ion-col>
+            <ion-col col-2 style="background-color: #000;" no-border>
+
+            </ion-col>
+        </ion-row>
+    </div>
+    <div style="background-color: #000; height: 16.6vh;margin-top: -1px;text-align: center">
+        <img src="assets/icon/visa-white.png" style="width: 20vh; height: 5vh; margin-top: 8vh;" />
+    </div>
+</ion-content>
+<ion-content class="back-view" *ngIf="menus == 'scan' && scanned" style="padding-top: 10vh">
+    <div style="margin: 55px -10px; height: 100px; background-color: #d8d8de">
+        <ion-card style="text-align: center; height: 95px; background-color: #e1eaf2">
+            <div style="margin: 5px 30px 10px 30px!important;padding: 10px 0px 10px">
+                <p style="color:#000000;font-size:14px;margin-top: 2px">
+                    Provide required details and pay on the supported networks
+                </p>
+            </div>
+        </ion-card>
+    </div>
+    <ion-list>
+        <ion-item style="font-size:12px;margin-left: 7px;" *ngIf="valueChecks.merchantID">
+            <ion-label>Merchant ID:</ion-label>
+            <ion-input type="tel" [(ngModel)]="objectblock.merchantID" disabled=""></ion-input>
+        </ion-item>
+        <ion-item style="font-size:12px;margin-left: 7px;" *ngIf="valueChecks.merchantName == 'yes'">
+            <ion-label>Merchant Name:</ion-label>
+            <ion-input type="tel" [(ngModel)]="objectblock.merchantName" disabled=""></ion-input>
+        </ion-item>
+        <ion-item style="font-size:12px;margin-left: 7px;" *ngIf="valueChecks.merchantCity == 'yes'">
+            <ion-label>Merchant City:</ion-label>
+            <ion-input type="tel" [(ngModel)]="objectblock.merchantCity" disabled></ion-input>
+        </ion-item>
+        <ion-item style="font-size:12px;margin-left: 7px;" *ngIf="valueChecks.currency == 'yes'">
+            <ion-label>Currency:</ion-label>
+            <ion-input type="tel" [(ngModel)]="objectblock.currency" disabled></ion-input>
+        </ion-item>
+        <ion-item style="font-size:12px;margin-left: 7px;" *ngIf="valueChecks.tip == 'yes'">
+            <ion-label>Convenience Fee:</ion-label>
+            <ion-input type="tel" [(ngModel)]="objectblock.tip" (ngModelChange)="updateAmount()"></ion-input>
+        </ion-item>
+        <ion-item style="font-size:12px;margin-left: 7px;" *ngIf="valueChecks.convenienceFlat == 'yes'">
+            <ion-label>Convenience Fee (Flat):</ion-label>
+            <ion-input type="tel" [(ngModel)]="objectblock.convenienceFlat" disabled></ion-input>
+        </ion-item>
+        <ion-item style="font-size:12px;margin-left: 7px;" *ngIf="valueChecks.conveniencePercent == 'yes'">
+            <ion-label>Convenience Fee (%):</ion-label>
+            <ion-input type="tel" [(ngModel)]="objectblock.conveniencePercent" disabled></ion-input>
+        </ion-item>
+        <ion-item style="font-size:12px; margin-left: 7px;">
+            <ion-label>Amount:</ion-label>
+            <ion-input type="tel" [(ngModel)]="objectblock.amount" (ngModelChange)="updateAmount()" *ngIf="valueChecks.amount != 'yes'"></ion-input>
+            <ion-input type="tel" [(ngModel)]="objectblock.amount" *ngIf="valueChecks.amount == 'yes'" disabled=""></ion-input>
+        </ion-item>
+        <ion-item style="font-size:12px;margin-left: 7px;">
+            <ion-label>Total Amount:</ion-label>
+            <ion-input type="tel" [(ngModel)]="objectblock.totalAmount" disabled></ion-input>
+        </ion-item>
+        <ion-item style="font-size:12px;margin-left: 7px;" *ngIf="valueChecks.conveniencePercent == 'yes'">
+            <ion-label>Convenience Fee (%):</ion-label>
+            <ion-input type="tel" [(ngModel)]="objectblock.conveniencePercent" disabled></ion-input>
+        </ion-item>
+        <ion-item style="font-size:12px;margin-left: 7px;" *ngIf="valueChecks.fieldOne == 'yes'">
+            <ion-label>{{ fields.additionalFieldOne }}:</ion-label>
+            <ion-input type="tel" [(ngModel)]="objectblock.fieldOne"></ion-input>
+        </ion-item>
+        <ion-item style="font-size:12px;margin-left: 7px;" *ngIf="valueChecks.fieldTwo == 'yes'">
+            <ion-label>{{ fields.additionalFiledTwo }}:</ion-label>
+            <ion-input type="tel" [(ngModel)]="objectblock.fieldTwo"></ion-input>
+        </ion-item>
+        <ion-item style="font-size:12px;">
+            <ion-label style="margin-left: 7.5px">Choose Account</ion-label>
+            <ion-select color="nmbblue" interface="action-sheet" [(ngModel)]="objectblock.accountfrom" style="max-width:auto;min-width:60%;text-align:right" interface="popover">
+                <!--<ion-option [value]="globalVars.getUsername()">{{ globalVars.getUsername()}}</ion-option>-->
+                <ion-option *ngFor="let account of accounts" [value]="account">{{account}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <p></p>
+    </ion-list>
+</ion-content>
+<ion-content class="back-view" *ngIf="menus == 'normal'">
+    <div style="margin: 55px -10px; height: 100px; background-color: #d8d8de">
+        <ion-card style="text-align: center; height: 95px; background-color: #e1eaf2">
+            <div style="margin: 5px 30px 10px 30px!important;padding: 10px 0px 10px">
+                <p style="color:#000000;font-size:14px;margin-top: 2px">
+                    Enter Merchant ID manually to pay on the supported networks
+                </p>
+            </div>
+        </ion-card>
+    </div>
+    <ion-list>
+        <ion-item style="font-size:12px;margin-top: 8vh">
+            <ion-input type="tel" maxlength="16" [(ngModel)]="objectblock.merchantID" placeholder="Merchant ID"></ion-input>
+        </ion-item>
+        <ion-item style="font-size:12px">
+            <ion-input type="tel" [(ngModel)]="objectblock.amount" placeholder="Amount" maxlength="10"></ion-input>
+        </ion-item>
+        <ion-item style="font-size:12px;">
+            <ion-label style="margin-left: 7.5px">Choose Account</ion-label>
+            <ion-select color="nmbblue" interface="action-sheet" [(ngModel)]="objectblock.accountfrom" style="max-width:auto;min-width:60%;text-align:right" interface="popover">
+                <!--<ion-option [value]="globalVars.getUsername()">{{ globalVars.getUsername()}}</ion-option>-->
+                <ion-option *ngFor="let account of accounts" [value]="account">{{account}}</ion-option>
+            </ion-select>
+        </ion-item>
+    </ion-list>
+</ion-content>
+<ion-toolbar no-border class="hide-on-keyboard-open footer-back" style="margin:0px;position:fixed;bottom:0;background:#888 ">
+    <ion-navbar style="margin:0px;padding:0px;height:10vh">
+        <ion-row *ngIf="menus == 'scan' && !scanned">
+            <ion-col (click)="scanningMenu('normal')" style=" background-color:#f26e21;color: #ffffff; text-align: center">
+                <p style="margin-top: 3vh">Enter ID Manually</p>
+            </ion-col>
+            <ion-col style="color: #ffffff; text-align: center; background-color:#003494; height: 10vh" (click)="qrScanning()">
+                <p style="margin-top: 3vh">Scan QR</p>
+            </ion-col>
+        </ion-row>
+        <button ion-button full color="nmborange" (click)="submit(objectblock)" style="margin:0px;font-size:13px;height:10vh" icon-left *ngIf="menus == 'normal' || menus == 'scan' && scanned">
+      PAY
+    </button>
+    </ion-navbar>
+</ion-toolbar>

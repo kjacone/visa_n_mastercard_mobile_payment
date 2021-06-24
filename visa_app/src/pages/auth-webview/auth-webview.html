@@ -1,34 +1,28 @@
-<!--
-  Generated template for the ConfirmModalPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-content class="bg">
-
-
-    <iframe target="_parent" [src]="safeUrl"  width="100%" height="85%" frameborder="0">
-
-
-    <!-- <form id="PAEnrollForm" name="PAEnrollForm" action="{{res.acsUrl}}" method="post" target="paInlineFrame">
-        <input type="hidden" name="PaReq" value="{{res.paReq}}" />
-        <input type="hidden" name="TermUrl" value="{{res.TermUrl}}" />
-        <input type="hidden" name="MD" value="{{res.xid}}" />
-        <script>
-            window.onload = function() {
-                document.getElementById('PAEnrollForm').submit();
-            }
-        </script>
-    </form> -->
-
-    </iframe>
+<ion-content class="{{cssclass}} main" padding>
+  <div *ngIf="cssclass!='statements'">
+    <br><br><br>
+    <!-- <img src="assets/svg/receipt/{{cssclass}}.svg" /> -->
+  </div>
+  <br>
+  <p class="title1" *ngIf="cssclass=='wait'">PROCESSING</p>
+  <p class="title1 " *ngIf="cssclass=='success'">SUCCESSFUL</p>
+  <p class="title1 " *ngIf="cssclass=='error'">FAILED</p>
+  <p class="title1 " *ngIf="cssclass=='statements'">RECEIPT</p>
 
 
-    <ion-row padding style="margin:auto">
-        <ion-col item-center>
-            <button class="submit-button" ion-button block small (click)="close()">
-        Close
-      </button>
+  <div>
+    <ion-card color="trans" padding>
+      <ion-row>
+        <ion-col>
+          <p class="title2" padding>{{statements}} </p>
         </ion-col>
-    </ion-row>
+      </ion-row>
+    </ion-card>
+
+  </div>
+
+  <div padding>
+    <button class="submit-button" ion-button (click)="goNext()" block>Done</button>
+  </div>
+
 </ion-content>

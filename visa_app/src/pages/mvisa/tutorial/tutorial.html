@@ -1,0 +1,18 @@
+<ion-content no-bounce class="grey">
+
+  <ion-slides pager="true" loop="true"  effect="fade" autoplay="3000">
+
+    <ion-slide padding *ngFor="let slide of slides" [ngStyle]="{ 'background': 'linear-gradient(65deg, rgba(0, 0, 0, .65)14%, rgba(0, 0, 0, .65)65%),url('+ slide.image + ')', 'background-size': 'cover', 'height': '100%'} ">
+
+      <img src="assets/icon/mvisa-logo1.png" style="width: 20vh; height: 5vh; margin-top: 8vh;" />
+      <hr style="background-color:#ffffff; height: 1.5px;" width="210vh">
+      <br>
+      <p style="font-family: 'AvenirLight';color:#ffffff;margin-top: 50vh;text-align: center;font-size: 2.5vh">{{slide.description}}</p>
+      <button ion-button color="nmborange" style="margin:0px;font-size:13px; height: 35px; width: 160px; border-radius: 40px" text-capitalize (click)="getStarted()">
+GET STARTED
+</button>
+
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

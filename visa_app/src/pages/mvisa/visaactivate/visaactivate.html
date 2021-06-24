@@ -1,0 +1,46 @@
+<ion-header no-border>
+    <ion-navbar hideBackButton>
+        <ion-buttons left>
+            <button ion-button navPop icon-only>
+        <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+      </button>
+        </ion-buttons>
+        <ion-title text-center *ngIf="pageState == 'normal'">Add Phone Number</ion-title>
+        <ion-title text-center *ngIf="pageState == 'modify'">Modify Phone Number</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="back-view">
+    <div class="container2">
+        <div style="margin-top: 5vh; padding: 0 15px 0 15px; height: 20%;" text-center>
+            <p style="font-size: 2.3vh;">Receive payment on your favourite Visa card by linking your phone number</p>
+        </div>
+        <ion-list>
+            <ion-item style="font-size:13px;height: 20%;">
+                <ion-label style="margin-left: 7.5px; color: #000;">Choose Account</ion-label>
+                <ion-select color="nmbblue" interface="action-sheet" [(ngModel)]="objectblock.accountfrom" style="max-width:auto;min-width:60%;text-align:right" interface="popover">
+                    <!--<ion-option [value]="globalVars.getMainAccountNumber()">{{ globalVars.getMainAccountNumber()}}</ion-option>-->
+                    <ion-option *ngFor="let account of accounts" [value]="account">{{account}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item style="font-size:12px; margin-top: 10vh;height: 20%;">
+                <ion-label style="margin-left: 7.5px; color: #000;">Mobile Number</ion-label>
+                <ion-input type="tel" [value]="globalVars.getUsername()" [(ngModel)]="objectblock.mobileNumber" maxlength="10" disabled></ion-input>
+            </ion-item>
+            <ion-row style="margin-top: 5vh; height: 20%;">
+                <ion-col style="text-align:justify">
+                    <p style="font-size: 2.3vh; padding-left: 15px; padding-right: 15px">Your names <span style="font-weight: bold">{{ globalVars.customername }}</span> will appear as per bank records when you are receiving funds with your mobile number</p>
+                </ion-col>
+            </ion-row>
+        </ion-list>
+    </div>
+</ion-content>
+<ion-footer no-border style="margin:0px;padding:0px;height:10vh">
+    <ion-navbar style="margin:0px;padding:0px;height:10vh">
+        <!-- <button ion-button color="nmborange" (click)="submit(objectblock)" style="margin:0px;font-size:12px; height: 40px; width: 200px; border-radius: 10px" text-capitalize>
+          CONFIRM
+        </button>-->
+        <button ion-button full color="nmborange" (click)="submit(objectblock)" style="margin:0px;font-size:13px;height: 10vh" text-capitalize icon-left>
+      CONFIRM
+    </button>
+    </ion-navbar>
+</ion-footer>

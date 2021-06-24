@@ -24,6 +24,7 @@ import { CallNumber } from '@ionic-native/call-number';
 import { Device } from '@ionic-native/device';
 import { ValidatorProvider } from '../providers/validator/validator';
 import { LanguageProvider } from '../providers/language/language';
+import { OneSignal } from '@ionic-native/onesignal';
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function createTranslateLoader(http: HttpClient) {
@@ -64,7 +65,7 @@ export function provideSettings(storage: Storage) {
     MyApp
   ],
   providers: [ AndroidPermissions, CallNumber, Network,Device,
-    Items, BarcodeScanner, Sim,InAppBrowser,
+    Items, BarcodeScanner, Sim,InAppBrowser,OneSignal,
     Camera,
     Contacts,
     ContactsProvider, GlobalVarsProvider, AlertServiceProvider, ClientdataProvider,

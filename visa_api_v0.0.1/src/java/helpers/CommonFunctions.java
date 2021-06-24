@@ -40,6 +40,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -637,6 +638,57 @@ public class CommonFunctions {
 
     }
 
+    public String sendToOneSignal() {
+
+        String jsonResponse = "";
+        try {
+            URL url = new URL("https://onesignal.com/api/v1/notifications");
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setUseCaches(false);
+            con.setDoOutput(true);
+            con.setDoInput(true);
+
+            con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+            con.setRequestProperty("Authorization", "Basic NGEwMGZmMjItY2NkNy0xMWUzLTk5ZDUtMDAwYzI5NDBlNjJj");
+            con.setRequestMethod("POST");
+
+            String strJsonBody = "{"
+                    + "\"app_id\": \"5eb5a37e-b458-11e3-ac11-000c2940e62c\","
+                    + "\"include_external_user_ids\": [\"6392d91a-b206-4b7b-a620-cd68e32c3a76\",\"76ece62b-bcfe-468c-8a78-839aeaa8c5fa\",\"8e0f21fa-9a5a-4ae7-a9a6-ca1f24294b86\"],"
+                    + "\"channel_for_external_user_ids\": \"push\","
+                    + "\"data\": {\"foo\": \"bar\"},"
+                    + "\"contents\": {\"en\": \"English Message\"}"
+                    + "}";
+
+            System.out.println("strJsonBody:\n" + strJsonBody);
+
+            byte[] sendBytes = strJsonBody.getBytes("UTF-8");
+            con.setFixedLengthStreamingMode(sendBytes.length);
+
+            OutputStream outputStream = con.getOutputStream();
+            outputStream.write(sendBytes);
+
+            int httpResponse = con.getResponseCode();
+            System.out.println("httpResponse: " + httpResponse);
+
+            if (httpResponse >= HttpURLConnection.HTTP_OK
+                    && httpResponse < HttpURLConnection.HTTP_BAD_REQUEST) {
+                try (Scanner scanner = new Scanner(con.getInputStream(), "UTF-8")) {
+                    jsonResponse = scanner.useDelimiter("\\A").hasNext() ? scanner.next() : "";
+                }
+            } else {
+                try (Scanner scanner = new Scanner(con.getErrorStream(), "UTF-8")) {
+                    jsonResponse = scanner.useDelimiter("\\A").hasNext() ? scanner.next() : "";
+                }
+            }
+            System.out.println("jsonResponse:\n" + jsonResponse);
+
+        } catch (IOException t) {
+            t.printStackTrace();
+        }
+        return jsonResponse;
+    }
+
     public JSONObject uploadToServer(String urlString, String data) throws IOException, JSONException {
         String query = Config.URL + urlString;
         String json = data;
@@ -669,42 +721,40 @@ public class CommonFunctions {
         return jsonObject;
     }
 
-    
-    public JSONObject uploadTo3DS(JSONObject data)  {
+    public JSONObject uploadTo3DS(JSONObject data) {
         JSONObject jsonObject = new JSONObject();
-        System.out.println("*******"+data.toString());
-try{
-        URL url = new URL(data.getString("acsUrl"));
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setConnectTimeout(5000);
-        conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-        conn.setDoOutput(true);
-        conn.setDoInput(true);
-        conn.setRequestMethod("POST");
-        conn.addRequestProperty("PaReq", data.getString("pareq"));
-        conn.addRequestProperty("TermUrl", data.getString("TermUrl"));
-        conn.addRequestProperty("MD", data.getString("xid"));
+        System.out.println("*******" + data.toString());
+        try {
+            URL url = new URL(data.getString("acsUrl"));
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setConnectTimeout(5000);
+            conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+            conn.setDoOutput(true);
+            conn.setDoInput(true);
+            conn.setRequestMethod("POST");
+            conn.addRequestProperty("PaReq", data.getString("pareq"));
+            conn.addRequestProperty("TermUrl", data.getString("TermUrl"));
+            conn.addRequestProperty("MD", data.getString("xid"));
 
 //        OutputStream os = conn.getOutputStream();
 //        os.write(json.getBytes("UTF-8"));
 //        os.close();
-
-        // read the response
-        InputStream in = new BufferedInputStream(conn.getInputStream());
-        String result = org.apache.commons.io.IOUtils.toString(in, "UTF-8");
+            // read the response
+            InputStream in = new BufferedInputStream(conn.getInputStream());
+            String result = org.apache.commons.io.IOUtils.toString(in, "UTF-8");
 //         jsonObject = new JSONObject(result);
 
-        in.close();
-        conn.disconnect();
-        el = new LogEngine("RESPONSE_IN",result);
-        el.log();
-}  catch(IOException | JSONException e){
-             e.printStackTrace();
-                }
+            in.close();
+            conn.disconnect();
+            el = new LogEngine("RESPONSE_IN", result);
+            el.log();
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+        }
 
         return jsonObject;
     }
-    
+
     public String maskCard(String encodedCard) {
         String maskedCard;
         try {

@@ -5,6 +5,7 @@ import CryptoJS from 'crypto-js';
 import { Network } from '@ionic-native/network';
 import { AlertServiceProvider } from '../alert-service/alert-service';
 import { Storage } from '@ionic/storage';
+
 /*
 
 import { Idle, DEFAULT_INTERRUPTSOURCES } from '@ng-idle/core';
@@ -39,6 +40,7 @@ export class GlobalVarsProvider {
   wallet_accounts: any = [];
   wallet_accounts_numbers: any = [];
   schools: any = [];
+  accounts:any =[];
   loans: any = [];
   partial: boolean;
   uuid: string = "";
@@ -71,6 +73,18 @@ export class GlobalVarsProvider {
     console.log( lastnine, phon );
     return "255"+lastnine;
   }
+
+  createToken() {
+    return "";
+  }
+
+  setUsername(value) {
+    this.mobileNo = value;
+  }
+
+  getUsername() {
+    return this.mobileNo;
+  }
   getHashPass( mobile:any,pin:any ) {
     let user = this.trimPhome( mobile );
     let words = CryptoJS.enc.Utf8.parse( user + pin );
@@ -85,6 +99,12 @@ export class GlobalVarsProvider {
     else
       console.error( "*********MOBILE_APP_ERROR: \n", msg );
 
+  }
+getEncryptedVars(bodies){
+  return bodies;
+}
+  getAccounts() {
+    return this.accounts;
   }
 
   saveUser( use ) {
@@ -140,13 +160,13 @@ export class GlobalVarsProvider {
     console.log( 'connect:', connectSubscription );
   }
 
-  
+
   cleanDigit( numb ) {
     var ni = numb.match( /^[0-9]+$/ );
     ni = Number( ni );
     if ( ni === 0 ) { ni = 'zero'; }
     return ni.toString();
   }
- 
+
 
 }
