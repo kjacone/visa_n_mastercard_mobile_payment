@@ -162,8 +162,7 @@ pushToken:any="";
     let data = this.data.value;
     data.type = "1001"
     data.phoneNumber = this.globalVars.mobileNo;
-    data.userId = this.userId;
-    data.pushToken = this.pushToken;
+   
     this.alertService.showDefaultLoading();
     this.globalVars.logger("Request: ", JSON.stringify(data));
     this.clientdata.sendData(data)

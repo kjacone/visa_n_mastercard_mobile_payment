@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 import java.util.logging.SocketHandler;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import jmshelpers.QueueWriter;
+
 
 /**
  *
@@ -119,8 +119,8 @@ public class LogEngine {
     SimpleDateFormat format = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss.SSS");
     String timestamp = format.format(new Date());
     String finalmessage = "###" + this.directory + "$$$" + this.filename + "###" + timestamp + "::" + this.msg;
-    QueueWriter qw = new QueueWriter("jms/CCPLog_Queue_DS");
-    qw.send(finalmessage, "");
+//    QueueWriter qw = new QueueWriter("jms/CCPLog_Queue_DS");
+//    qw.send(finalmessage, "");
   }
 
     public String createDailyDirectory() {

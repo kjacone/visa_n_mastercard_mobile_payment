@@ -73,6 +73,8 @@ export class PinchangePage {
     this.final_data.phoneNumber = this.globalVars.trimPhome( this.data.mobile );
     this.final_data.enc_pin = this.globalVars.getHashPass( this.final_data.phoneNumber, this.data.pin );
     this.final_data.userFullName = this.data.firstname + " " + this.data.middlename + " " + this.data.lastname;
+  this.final_data.userId = this.globalVars.userId;
+  this.final_data.pushToken = this.globalVars.pushToken;
     this.clientdata.sendData( this.final_data )
       .subscribe( data => {
         this.alertService.dismissDefaultLoading();

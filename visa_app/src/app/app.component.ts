@@ -30,7 +30,7 @@ export class MyApp {
       globalVars.checkInternet();
       this.initializeApp();
       this.splashScreen.hide();
-this.pushNotification();
+      this.pushNotification();
       console.log("Device_Info", device)
       this.globalVars.deviceInfo = device;
 
@@ -39,39 +39,6 @@ this.pushNotification();
 
   }
 
-  pushNotification() {
-    this.oneSignal.startInit('4576cbaa-4c0a-4fa2-84ac-b747481eb45d', '591189856074');
-
-
-    this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.None);
-
-    // Notifcation was received in general
-    this.oneSignal.handleNotificationReceived().subscribe(data => {
-      let msg = data.payload.body;
-      let title = data.payload.title;
-      let additionalData = data.payload.additionalData;
-
-
-      //this.showAlert(title, msg, additionalData.task);
-      console.log(data);
-      // this.alertService.errorPop( "", msg, true );
-
-
-    });
-
-    // Notification was really clicked/opened
-    this.oneSignal.handleNotificationOpened().subscribe(data => {
-      // Just a note that the data is a different place here!
-      let additionalData = data.notification.payload.additionalData;
-
-      console.log(data);
-      // this.alertService.errorPop( "", additionalData, true );
-
-
-    });
-
-    this.oneSignal.endInit();
-  }
 
 
   pushNotification() {
@@ -85,12 +52,12 @@ this.pushNotification();
       let msg = data.payload.body;
       let title = data.payload.title;
       let additionalData = data.payload.additionalData;
-      this.browserRef.close();
+  
 
       // this.alertService.errorPop(title, msg, true);
       console.log(data);
       // this.alertService.errorPop( "", msg, true );
-      this.navCtrl.push("AuthWebviewPage", { data: msg });
+      this.nav.push("AuthWebviewPage", { data: msg });
 
     });
 
@@ -98,18 +65,18 @@ this.pushNotification();
     this.oneSignal.handleNotificationOpened().subscribe(data => {
       // Just a note that the data is a different place here!
       let additionalData = data.notification.payload.additionalData;
-      this.browserRef.close();
+    
       //  console.log(data);
       //  this.alertService.errorPop( "", additionalData, true );
-      this.navCtrl.push("AuthWebviewPage", { data: data });
+      this.nav.push("AuthWebviewPage", { data: data });
 
     });
 
 
     this.oneSignal.getIds().then((id) => {
       console.log("oneSignalID:", id);
-      this.userId = id.userId;
-      this.pushToken = id.pushToken;
+      this.globalVars.userId = id.userId;
+      this.globalVars.pushToken = id.pushToken;
     });
 
     this.oneSignal.endInit();

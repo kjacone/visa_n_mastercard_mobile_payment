@@ -11,6 +11,7 @@ import configs.MongoDB;
 import helpers.CommonFunctions;
 import helpers.SENDTransactionSMS;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -65,6 +66,8 @@ public class visa_api extends HttpServlet {
 //            String client = request.getHeader("client_ID");
 //            System.out.println("client" + client);
             initialized();
+            System.out.println("configmap"+ configmap.toString());
+            
             ProcessAppRequests main = new ProcessAppRequests();
 
 //            String allowedClients = Config.CLIENTS_ALLOWED;
@@ -227,7 +230,9 @@ public class visa_api extends HttpServlet {
     public void initialized() {
         try {
             //ServletContext ctx = sce.getServletContext();
-            input = new FileInputStream("/Users/kjacone/Documents/ionic_projects/personal/configs/config.properties");
+//            input = new FileInputStream("C:/Users/jkeya/Documents/GitHub/visa_n_mastercard_mobile_payment/visa_api_v0.0.1/config.properties");
+            input = new FileInputStream( new File("").getAbsolutePath() + "/config.properties");
+            
             prop.load(input);
             Enumeration<?> e = prop.propertyNames();
             while (e.hasMoreElements()) {

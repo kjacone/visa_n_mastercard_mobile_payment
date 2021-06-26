@@ -62,6 +62,8 @@ export class GlobalVarsProvider {
   SIMinfo: any = {};
   deviceInfo: any = {};
   mobileNo: string;
+  pushToken:any;
+  userId:any;
   customername: string = "Unregistered User";
   constructor( private storage: Storage, public http: HttpClient,  private network: Network, public alertService: AlertServiceProvider) {
     console.log('Hello GlobalVarsProvider Provider');
