@@ -692,7 +692,7 @@ public class CommonFunctions {
     public JSONObject uploadToServer(String urlString, String data) throws IOException, JSONException {
         String query = Config.URL + urlString;
         String json = data;
-
+           System.out.println("REQUEST_OUT \n"+ query + "\n" + data);
         LogEngine el = new LogEngine("REQUEST_OUT", query + "\n" + data);
         el.log();
 

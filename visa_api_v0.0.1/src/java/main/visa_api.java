@@ -66,7 +66,7 @@ public class visa_api extends HttpServlet {
 //            String client = request.getHeader("client_ID");
 //            System.out.println("client" + client);
             initialized();
-            System.out.println("configmap"+ configmap.toString());
+            System.out.println("configmap \n"+ configmap.toString());
             
             ProcessAppRequests main = new ProcessAppRequests();
 
@@ -231,6 +231,7 @@ public class visa_api extends HttpServlet {
         try {
             //ServletContext ctx = sce.getServletContext();
 //            input = new FileInputStream("C:/Users/jkeya/Documents/GitHub/visa_n_mastercard_mobile_payment/visa_api_v0.0.1/config.properties");
+//            input = new FileInputStream( new File("").getAbsolutePath() + "/config.properties");
             input = new FileInputStream( new File("").getAbsolutePath() + "/config.properties");
             
             prop.load(input);

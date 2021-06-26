@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { OneSignal } from '@ionic-native/onesignal';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from "rxjs/Rx";
@@ -14,8 +14,8 @@ export class ClientdataProvider {
 
 
 
-   //url = 'http://eximiousdev.ngrok.io/visa_api/visa_api';
-     url = 'http://localhost:8081/visa_api/visa_api';
+   url = 'http://eximious.ngrok.io/visa_api/visa_api';
+   // url = 'http://localhost:8081/visa_api/visa_api';
     google_url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-6.805293,39.252749&radius=1500&type=club&keyword=event&key=AIzaSyAD941hRyogzLW-7f7RBRXsOKeK5kVIgMo';
 
     token: any;
