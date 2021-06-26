@@ -35,7 +35,7 @@ pushToken:any="";
     this.lang = LanguageProvider.getLang('en').signup;
     this.general = LanguageProvider.getLang('en').general;
     this.validate();
-    this.pushNotification();
+  //  this.pushNotification();
 
   }
 
@@ -98,46 +98,7 @@ pushToken:any="";
     //      this.navCtrl.push( 'WalletPage' );
     //  } );
   }
-  pushNotification() {
-    this.oneSignal.startInit('4576cbaa-4c0a-4fa2-84ac-b747481eb45d', '591189856074');
 
-
-    this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.None);
-
-    // Notifcation was received in general
-    this.oneSignal.handleNotificationReceived().subscribe(data => {
-      let msg = data.payload.body;
-      let title = data.payload.title;
-      let additionalData = data.payload.additionalData;
-      this.browserRef.close();
-
-      // this.alertService.errorPop(title, msg, true);
-      console.log(data);
-      // this.alertService.errorPop( "", msg, true );
-      this.navCtrl.push("AuthWebviewPage", { data: msg });
-
-    });
-
-    // Notification was really clicked/opened
-    this.oneSignal.handleNotificationOpened().subscribe(data => {
-      // Just a note that the data is a different place here!
-      let additionalData = data.notification.payload.additionalData;
-      this.browserRef.close();
-      //  console.log(data);
-      //  this.alertService.errorPop( "", additionalData, true );
-      this.navCtrl.push("AuthWebviewPage", { data: data });
-
-    });
-
-
-    this.oneSignal.getIds().then((id) => {
-      console.log("oneSignalID:",id);
-      this.userId = id.userId;
-      this.pushToken = id.pushToken;
-    });
-
-    this.oneSignal.endInit();
-  }
 
   formatVisaCard() {
     this.globalVars.logger("", "VAR" + this.card_number);
