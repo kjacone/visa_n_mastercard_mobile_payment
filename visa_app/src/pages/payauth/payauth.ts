@@ -96,7 +96,7 @@ export class PayauthPage {
   }
   auth() { 
     // this.alertService.showPin( this.data );
-    this.alertService.showPin();
+   // this.alertService.showPin();
   }
   continue() { 
     this.myres = true;

@@ -53,8 +53,8 @@ public final class PayerAuthentication extends MustHave {
 
         PayerAuthenticationModel pam = new PayerAuthenticationModel();
         HashMap<String, String> incoming_request_hash = cf.jsonToHashMap(incoming_request);
-//        pam.setClientReferenceInformation(generateUUID());
-        pam.setClientReferenceInformation("1234568");
+        pam.setClientReferenceInformation(generateUUID());
+//        pam.setClientReferenceInformation("1234568");
 
         pam.setOrderInformation(incoming_request_hash);
         pam.setPaymentInformation(incoming_request_hash);

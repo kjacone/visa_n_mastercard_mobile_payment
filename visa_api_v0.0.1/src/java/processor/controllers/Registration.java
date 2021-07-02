@@ -41,6 +41,8 @@ public class Registration  extends MustHave {
      pam.put("userFullName",incoming_request.get("userFullName"));
      pam.put("userPin",incoming_request.get("enc_pin"));
      pam.put("deviceInfo",incoming_request.getJSONObject("deviceInfo"));
+     pam.put("userId",incoming_request.getJSONObject("userId"));
+     pam.put("pushToken",incoming_request.getJSONObject("pushToken"));
 //     pam.put("deviceInfo","");
         
         return sendData(pam.toString());   

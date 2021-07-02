@@ -62,17 +62,17 @@ public class PayerAuthenticationModel {
             orderInformation_2.put("totalAmount", "1.00");
             orderInformation_2.put("currency", "TZS");
             //personal_details
-            orderInformation_1.put("country", orderInformation.get("country"));
-            orderInformation_1.put("firstName", orderInformation.get("firstName"));
-            orderInformation_1.put("lastName", orderInformation.get("lastName"));
-//            orderInformation_1.put("phoneNumber", orderInformation.get("phoneNumber"));
-            orderInformation_1.put("phoneNumber", "255767144609");
+            orderInformation_1.put("country", "TZ");
+            orderInformation_1.put("firstName", orderInformation.get("cardholderName"));
+            orderInformation_1.put("lastName", orderInformation.get("cardholderName"));
+            orderInformation_1.put("phoneNumber", orderInformation.get("phoneNumber"));
+//            orderInformation_1.put("phoneNumber", "255767144609");
 //            orderInformation_1.put("address2", orderInformation.get("address2"));
 //            orderInformation_1.put("address1", orderInformation.get("address1"));
 //            orderInformation_1.put("postalCode", orderInformation.get("postalCode"));
 //            orderInformation_1.put("locality", orderInformation.get("locality"));
 //            orderInformation_1.put("administrativeArea", orderInformation.get("administrativeArea"));
-            orderInformation_1.put("email", orderInformation.get("email"));
+//            orderInformation_1.put("email", orderInformation.get("email"));
 
             orderInformation_3.put("billTo", orderInformation_1);
             orderInformation_3.put("amountDetails", orderInformation_2);
@@ -96,14 +96,12 @@ public class PayerAuthenticationModel {
             this.paymentInformation = new JSONObject();
             JSONObject paymentInformation_1 = new JSONObject();
             JSONObject paymentInformation_2 = new JSONObject();
-            String expiry =paymentInformation.get("expiry");
-          String  exp_year = (expiry.length() >= 6)? expiry.substring(2, 6): expiry.substring(1, 5);
-          String  exp_month = (expiry.length() >= 6)? expiry.substring(0, 2): "0"+expiry.substring(0, 1);
-            paymentInformation_1.put("expirationYear", exp_year);
-            paymentInformation_1.put("number", paymentInformation.get("number"));
-            paymentInformation_1.put("expirationMonth", exp_month);
-            paymentInformation_1.put("type", paymentInformation.get("type"));
-            paymentInformation_1.put("cvv2", "123");
+   String type = ( paymentInformation.get("cardType").equalsIgnoreCase("MasterCard"))? "1001" : "1002";
+            paymentInformation_1.put("expirationYear", paymentInformation.get("expiryYear"));
+            paymentInformation_1.put("number", paymentInformation.get("cardNumber"));
+            paymentInformation_1.put("expirationMonth", paymentInformation.get("expiryMonth"));
+            paymentInformation_1.put("type",type);
+            paymentInformation_1.put("cvv2",  paymentInformation.get("cvv"));
             paymentInformation_2.put("card", paymentInformation_1);
             this.paymentInformation.put("paymentInformation", paymentInformation_2);
         } catch (JSONException e) {

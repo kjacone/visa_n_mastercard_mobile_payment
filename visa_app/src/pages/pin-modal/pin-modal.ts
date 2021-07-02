@@ -47,9 +47,9 @@ export class PinModalPage {
     public alertService: AlertServiceProvider,public clientdata:ClientdataProvider
   ) {
 
-    //this.data = navParams.get( 'data' );
+    this.data = navParams.get( 'data' );
 
-    this.data.phoneNumber = globalVars.mobileNo;
+ 
 
     this.err = LanguageProvider.getLang( 'en' ).general;
   }
@@ -76,7 +76,7 @@ export class PinModalPage {
       this.three = "grad-pin-active";
       this.four = "grad-pin-active";
       console.log( 'PIN: ' + this.pin );
-      this.sendData();
+      this.submit();
     } else { 
       this.one = "grad-pin";
       this.two = "grad-pin";
@@ -87,77 +87,11 @@ export class PinModalPage {
   }
 
 
-  sendData() {
-    this.alertService.showDefaultLoading();
-    this.final_data.phoneNumber = this.globalVars.trimPhome( this.data.phoneNumber );
-    this.final_data.enc_pin = this.globalVars.getHashPass( this.final_data.phoneNumber, this.pin );
-    this.pin = "";
-    this.playnum();
-    this.clientdata.sendData( this.final_data )
-      .subscribe( data => {
-        this.alertService.dismissDefaultLoading();
-        if ( data.length != 0 ) {
-          console.log( "Response: ", data );
-          let r_data = JSON.parse( data );
-          if ( r_data.f39 == "00" ) {
-              this.globalVars.token = r_data.token;
-            this.viewCtrl.dismiss( true );
-          } else {
-            this.alertService.errorPop( "", r_data.f48, true );
-          }
-        } else {
-          this.alertService.errorPop( "", this.err.timeout, true );
-        }
-      }, error => {
-        this.alertService.dismissDefaultLoading();
-        this.alertService.errorPop( "", this.err.conn, true );
-      } );
-  }
-
 
 
   submit() {
-    this.alertService.showDefaultLoading();
-    this.clientdata.sendData( this.data )
-      .subscribe( data => {
-        if ( data.length != 0 ) {
-          console.log( "Response: ", data );
-          this.alertService.dismissDefaultLoading();
-          if ( data.success ) {
-
-          //   this.navCtrl.push( 'ReceiptPage', {
-          //     data: {
-          //       message: data.message,
-          //       style: 'wait',
-          //       next: 'WalletPage'
-          //     }
-          //   } );
-          // } else if ( !data.success ) {
-
-          //   this.navCtrl.push( 'ReceiptPage', {
-          //     data: {
-          //       message: data.message,
-          //       style: 'error',
-          //       next: ''
-          //     }
-          //   } );
-
-          } else {
-            this.navCtrl.setRoot( this.navCtrl.getPrevious() );
-            this.alertService.errorPop( "", this.err.tech, true );
-          }
-        } else {
-          this.navCtrl.setRoot( this.navCtrl.getPrevious() );
-          console.log( " timeout" );
-          this.alertService.dismissDefaultLoading();
-          this.navCtrl.setRoot( this.navCtrl.getPrevious() );
-          this.alertService.errorPop( "", this.err.timeout, true );
-        }
-      }, error => {
-        this.alertService.dismissDefaultLoading();
-        this.navCtrl.setRoot( this.navCtrl.getPrevious() );
-        this.alertService.errorPop( "", this.err.conn, true );
-      } );
+ 
+    this.viewCtrl.dismiss( this.pin );
   }
 
 
@@ -185,27 +119,11 @@ export class PinModalPage {
   }
 
   private customHandleBackButton(): void {
-    this.exit();
+    this.viewCtrl.dismiss();
   }
 
   
-  exit() {
-    let message = "Are you sure you want to quit from the application?";
 
-    let template = "<div>" + message + "</div>";
-    let obj = { body: "", template: template, ttype: "", completed: false, pageTo: '' };
-    let myModal = this.modalCtrl.create( 'ConfirmModalPage', obj );
-    myModal.present();
-    myModal.onDidDismiss( data => {
-      console.log( "Data =>" + data );
-      if ( data ) {
-        this.platform.exitApp();
-      }
-      else {
-       // this.loginPage();
-      }
-    } );
-  }
 
 popmeth( message ) {
   let template = "<div>" + message + "</div>";

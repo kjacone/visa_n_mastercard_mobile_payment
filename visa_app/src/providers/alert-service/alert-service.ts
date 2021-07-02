@@ -34,15 +34,13 @@ export class AlertServiceProvider {
     console.log('Hello AlertServiceProvider Provider');
   }
 //modals
-  showPin() {
-
-    this.myModal = this.modalCtrl.create( 'PinModalPage' );
+  showPin(obj) {
+    
+    this.myModal = this.modalCtrl.create( 'PinModalPage', obj );
     this.myModal.onDidDismiss( data => {
-
+      console.log( 'PIN: ' + data );
     } );
     this.myModal.present();
-
-
   }
 
 

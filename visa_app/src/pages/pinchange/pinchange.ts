@@ -15,7 +15,7 @@ export class PinchangePage {
   final_data: any = { type:"1003", enc_pin:""};
   err: any = {};
   error: number = 0;
-
+  myModal: any;
   constructor( public navCtrl: NavController,public alertCtrl: AlertController , public globalVars: GlobalVarsProvider, public alertService: AlertServiceProvider,
     public modalCtrl: ModalController, public clientdata:ClientdataProvider) {
 
@@ -63,6 +63,27 @@ export class PinchangePage {
       }
     } );
   }
+
+enterPin(){
+  let obj = { title:"Enter PIN",body: "Enter you New PIN" ,type:"E"}
+this.showPin(obj);
+}
+confirmPin(){
+let obj = { title:"Confirm PIN",body:"Confirm you New PIN" ,type:"C"}
+this.showPin(obj);
+}
+
+  showPin(obj) {
+    let ziPin ="";
+    this.myModal = this.modalCtrl.create( 'PinModalPage',{ data :obj} );
+    this.myModal.onDidDismiss( data => {
+      console.log( 'PIN: ' + data );
+      if (obj.type =="E") this.data.pin=data; else this.data.newpin=data;
+    } );
+    this.myModal.present();
+
+  }
+
 
   sendData() {
     this.alertService.showDefaultLoading();

@@ -272,15 +272,16 @@ export class WalletPage {
   data: any = { type: "get_menu",mobile: "",account_from:"" };
   err:any = {}
   accounts = [ "0724727999", "23434827283" ];
-
+  general: any = {};
   constructor( public navCtrl: NavController, public navParams: NavParams, public globalVars: GlobalVarsProvider, public alertService: AlertServiceProvider, public clientdata: ClientdataProvider,
     public popoverCtrl: PopoverController ) {
     this.err = LanguageProvider.getLang( 'en' ).general;
     this.data.mobile = globalVars.mobileNo;
-    // this.submitted();
+    this.general = LanguageProvider.getLang('en').general;
 
   
   }
+
 
 
 

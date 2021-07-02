@@ -7,43 +7,43 @@
        
         <ion-item class="ion-item-input">
             <ion-label color="primary" stacked>Enter First Names</ion-label>
-            <ion-input text-center type="text" maxlength="25" placeholder="First Name" [(ngModel)]="data.firstname"></ion-input>
+            <ion-input text-center type="text" maxlength="25" [(ngModel)]="data.firstname"></ion-input>
         </ion-item>
         <!--<br><br>-->
         <div class="error" *ngIf="error==1"> <a> Enter a valid First Name </a> </div>
         <br>
         <ion-item class="ion-item-input">
             <ion-label color="primary" stacked>Enter Middle Names</ion-label>
-            <ion-input text-center type="text" maxlength="25" placeholder="Middle Name" [(ngModel)]="data.middlename"></ion-input>
+            <ion-input text-center type="text" maxlength="25" [(ngModel)]="data.middlename"></ion-input>
         </ion-item>
         <!--<br><br>-->
         <div class="error" *ngIf="error==2"> <a> Enter a valid Middle Name </a> </div>
         <br>
         <ion-item class="ion-item-input">
             <ion-label color="primary" stacked>Enter Last Names</ion-label>
-            <ion-input text-center type="text" maxlength="25" placeholder="Last Name" [(ngModel)]="data.lastname"></ion-input>
+            <ion-input text-center type="text" maxlength="25"  [(ngModel)]="data.lastname"></ion-input>
         </ion-item>
         <!--<br><br>-->
         <div class="error" *ngIf="error==3"> <a> Enter a valid Last Name </a> </div>
         <br>
         <ion-item class="ion-item-input">
             <ion-label color="primary" stacked>Enter Email Address</ion-label>
-            <ion-input text-center type="text" maxlength="25" placeholder="Email Address" [(ngModel)]="data.email"></ion-input>
+            <ion-input text-center type="email" maxlength="25" [(ngModel)]="data.email"></ion-input>
         </ion-item>
         <!--<br><br>-->
         <div class="error" *ngIf="error==4"> <a> Enter a valid Email Address </a> </div>
         <br>
         
-        <ion-item class="ion-item-input">
+        <ion-item class="ion-item-input"  (click)="enterPin()">
             <ion-label color="primary" stacked>New PIN</ion-label>
-            <ion-input type="tel" style="-webkit-text-security:disc;" text-center type="tel" maxlength="4" placeholder="New PIN" [(ngModel)]="data.pin"></ion-input>
+            <ion-input type="tel" style="-webkit-text-security:disc;" text-center type="tel" maxlength="4" [disabled]="true" placeholder="New PIN" [(ngModel)]="data.pin" ></ion-input>
         </ion-item>
         <!--<br><br>-->
         <div class="error" *ngIf="error==5"> <a> Enter a valid PIN number </a> </div>
         <br>
-        <ion-item class="ion-item-input">
+        <ion-item class="ion-item-input"  (click)="confirmPin()">
             <ion-label color="primary" stacked>Confirm PIN </ion-label>
-            <ion-input type="tel" style="-webkit-text-security:disc;" text-center type="tel" maxlength="4" placeholder="Confirm PIN" [(ngModel)]="data.newpin"></ion-input>
+            <ion-input type="tel" style="-webkit-text-security:disc;" text-center type="tel" maxlength="4" [disabled]="true" placeholder="Confirm PIN" [(ngModel)]="data.newpin"></ion-input>
         </ion-item>
         <div class="error" *ngIf="error==6"> <a>New PIN and Confirm PIN do not match </a> </div>
         <br>
